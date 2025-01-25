@@ -1,12 +1,18 @@
-import { Button } from '@mui/material'
+import { Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
+
+import routes from './routes'
 
 export default function App() {
   return (
-    <div className='p-4'>
-      <h1 className='text-3xl font-bold text-blue-500'>Hello World </h1>
-      <Button variant='contained' color='primary'>
-        Test Btn
-      </Button>
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </Suspense>
     </div>
   )
 }
