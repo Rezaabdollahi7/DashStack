@@ -10,3 +10,14 @@
 .css-5h82ro-MuiInputBase-root-MuiInput-root::before {
   border: none !important;
 }
+
+.sidebar-active-link::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: var(--color-primary-light);
+  border-radius: 0 5px 5px 0 ;
+}
