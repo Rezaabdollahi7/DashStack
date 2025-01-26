@@ -5,4 +5,8 @@
   --color-light-black: #202224;
   --color-primary-light: #4880ff;
 
-} 
+}
+
+.css-5h82ro-MuiInputBase-root-MuiInput-root::before {
+  border: none !important;
+}
