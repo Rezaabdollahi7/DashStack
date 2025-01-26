@@ -4,6 +4,14 @@
   --color-light-main-bg: #f7f7fa;
   --color-light-black: #202224;
   --color-primary-light: #4880ff;
+  --color-icon-purple: #8280ff;
+  --color-icon-yellow: #fec53d;
+  --color-icon-green: #4ad991;
+  --color-icon-orange: #ff9872;
+  --color-bg-purple: #e4e4ff;
+  --color-bg-yellow: #fef2d6;
+  --color-bg-green: #d9f7d7;
+  --color-bg-orange: #ffded2;
 
 }
 
@@ -19,5 +27,5 @@
   bottom: 0;
   width: 5px;
   background-color: var(--color-primary-light);
-  border-radius: 0 5px 5px 0 ;
+  border-radius: 0 5px 5px 0;
 }
