@@ -5,13 +5,13 @@ import IconButton from '@mui/material/IconButton'
 import Badge from '@mui/material/Badge'
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
 import Avatar from '@mui/material/Avatar'
-import AvatarImage from '../../../public/images/avatar.png'
+import AvatarImage from '../../assets/images/avatar.png'
 import { useState, useMemo, useCallback } from 'react'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import EnIcon from '../../../public/icons/england.avif'
-import IrIcon from '../../../public/icons/iran.png'
+import EnIcon from '../../assets/icons/england.avif'
+import IrIcon from '../../assets/icons/iran.png'
 
 const languages = [
   { code: 'en', name: 'English', icon: EnIcon },
