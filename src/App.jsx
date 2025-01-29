@@ -8,11 +8,11 @@ export default function App() {
     <main className='bg-light-main-bg overflow-x-hidden'>
       <Suspense fallback={<div>Loading...</div>}>
         <div className='grid grid-cols-12'>
-          <div className='sidebar-wrapper col-span-2'>
+          <div className='sidebar-wrapper hidden lg:col-span-2 lg:block'>
             <Sidebar />
           </div>
 
-          <div className='route-wrapper col-span-10'>
+          <div className='route-wrapper col-span-12 lg:col-span-10'>
             <Navbar />
             <Routes>
               {routes.map((route, index) => (
