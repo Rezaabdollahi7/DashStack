@@ -13,6 +13,7 @@ import { MdShowChart } from 'react-icons/md'
 import { IoPeople } from 'react-icons/io5'
 import { RiBox3Fill } from 'react-icons/ri'
 import { RiLineChartFill } from 'react-icons/ri'
+import { PiUsersThreeFill } from 'react-icons/pi'
 import { GoHistory } from 'react-icons/go'
 import user1Logo from './assets/images/users/lastVisitedUsers/user1.jpg'
 import user2Logo from './assets/images/users/lastVisitedUsers/user9.jpg'
@@ -25,6 +26,11 @@ export const sidebarLinks = [
     LinkName: 'Home',
     Link: '/',
     icon: <SpeedIcon className='h-6 w-5' />,
+  },
+  {
+    LinkName: 'Users',
+    Link: '/users',
+    icon: <PiUsersThreeFill className='h-6 w-5' />,
   },
   {
     LinkName: 'products',
@@ -195,5 +201,65 @@ export const lastVisitedUsers = [
     online: true,
     visitTime: '12:00',
     img: user5Logo,
+  },
+]
+
+// Users information
+export const usersRow = [
+  {
+    id: 1,
+    fullName: 'Reza Abdollahi1',
+    age: 24,
+    avatar: user1Logo,
+    status: true,
+  },
+  {
+    id: 2,
+    fullName: 'Yeganeh Jafari',
+    age: 23,
+    avatar: user2Logo,
+    status: false,
+  },
+  {
+    id: 3,
+    fullName: 'Hamed Adhamn',
+    age: 17,
+    avatar: user3Logo,
+    status: true,
+  },
+  {
+    id: 4,
+    fullName: 'RMG CU',
+    age: 25,
+    avatar: user4Logo,
+    status: false,
+  },
+  {
+    id: 5,
+    fullName: 'Kaveh Ahmadi',
+    age: 32,
+    avatar: user5Logo,
+    status: true,
+  },
+  {
+    id: 6,
+    fullName: 'Meysam Abdi',
+    age: 28,
+    avatar: user3Logo,
+    status: false,
+  },
+  {
+    id: 7,
+    fullName: 'Kimia Hasani',
+    age: 35,
+    avatar: user5Logo,
+    status: true,
+  },
+  {
+    id: 8,
+    fullName: 'Jalil Asadi',
+    age: 40,
+    avatar: user1Logo,
+    status: false,
   },
 ]

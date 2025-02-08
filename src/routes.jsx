@@ -12,6 +12,7 @@ const Todo = lazy(() => import('./pages/Todo/Todo'))
 const Contact = lazy(() => import('./pages/Contact/Contact'))
 const Settings = lazy(() => import('./pages/Settings/Settings'))
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'))
+const UsersList = lazy(() => import('./pages/UsersList/UsersList'))
 
 let routes = [
   { path: '/', element: <Dashboard /> },
@@ -25,6 +26,7 @@ let routes = [
   { path: '/todo', element: <Todo /> },
   { path: '/contact', element: <Contact /> },
   { path: '/settings', element: <Settings /> },
+  { path: '/users', element: <UsersList /> },
   { path: '*', element: <NotFound /> },
 ]
 
