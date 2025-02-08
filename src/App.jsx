@@ -14,11 +14,17 @@ export default function App() {
 
           <div className='route-wrapper col-span-12 lg:col-span-10'>
             <Navbar />
-            <Routes>
-              {routes.map((route, index) => (
-                <Route key={index} path={route.path} element={route.element} />
-              ))}
-            </Routes>
+            <div className='px-6'>
+              <Routes>
+                {routes.map((route, index) => (
+                  <Route
+                    key={index}
+                    path={route.path}
+                    element={route.element}
+                  />
+                ))}
+              </Routes>
+            </div>
           </div>
         </div>
       </Suspense>

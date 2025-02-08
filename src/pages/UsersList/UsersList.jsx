@@ -7,7 +7,7 @@ import { FaPen } from 'react-icons/fa6'
 import { MdDeleteSweep } from 'react-icons/md'
 import Snackbar from '@mui/material/Snackbar'
 import Alert from '@mui/material/Alert'
-
+import HeroTitle from '../../components/common/HeroTitle'
 export default function UsersList() {
   const [userRows, setUserRows] = useState(usersRow)
   const [open, setOpen] = useState(false)
@@ -103,6 +103,7 @@ export default function UsersList() {
 
   return (
     <div className='wrapper'>
+      <HeroTitle name='Users' />
       <Box sx={{ height: 370, width: '100%' }}>
         <DataGrid
           rows={userRows}
