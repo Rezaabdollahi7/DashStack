@@ -22,7 +22,10 @@ export const usersInfo = [
     team: 'irDevs',
     joinTime: 'April, 2025',
     resumeLink: 'reza-resume.com',
+    location: 'USA / California',
     linkedInPage: 'linkedin.com/in/reza-abdollahi',
+    about:
+      'Experienced in building responsive and user-friendly web interfaces using modern technologies like React and Vue.js. Passionate about creating seamless user experiences.',
   },
   {
     id: 2,
@@ -37,7 +40,10 @@ export const usersInfo = [
     team: 'DesignTeam',
     joinTime: 'June, 2024',
     resumeLink: 'yeganeh-resume.com',
+    location: 'Canada / Toronto',
     linkedInPage: 'linkedin.com/in/yeganeh-jafari',
+    about:
+      'Specializes in creating intuitive and visually appealing designs. Proficient in tools like Figma, Adobe XD, and Sketch.',
   },
   {
     id: 3,
@@ -52,7 +58,10 @@ export const usersInfo = [
     team: 'ServerTeam',
     joinTime: 'August, 2023',
     resumeLink: 'hamed-resume.com',
+    location: 'Germany / Berlin',
     linkedInPage: 'linkedin.com/in/hamed-adhamn',
+    about:
+      'Expert in server-side development with Node.js and Django. Focuses on building scalable and efficient backend systems.',
   },
   {
     id: 4,
@@ -67,7 +76,10 @@ export const usersInfo = [
     team: 'OpsTeam',
     joinTime: 'October, 2022',
     resumeLink: 'rmg-resume.com',
+    location: 'UK / London',
     linkedInPage: 'linkedin.com/in/rmg-cu',
+    about:
+      'Skilled in CI/CD pipelines, containerization, and cloud infrastructure. Enjoys automating deployment processes.',
   },
   {
     id: 5,
@@ -82,7 +94,10 @@ export const usersInfo = [
     team: 'FullStackTeam',
     joinTime: 'December, 2021',
     resumeLink: 'kaveh-resume.com',
+    location: 'France / Paris',
     linkedInPage: 'linkedin.com/in/kaveh-ahmadi',
+    about:
+      'Proficient in both front-end and back-end development. Loves building end-to-end solutions with React and Node.js.',
   },
   {
     id: 6,
@@ -97,7 +112,10 @@ export const usersInfo = [
     team: 'DataTeam',
     joinTime: 'February, 2020',
     resumeLink: 'meysam-resume.com',
+    location: 'Australia / Sydney',
     linkedInPage: 'linkedin.com/in/meysam-abdi',
+    about:
+      'Passionate about data analysis and machine learning. Experienced in Python, TensorFlow, and data visualization tools.',
   },
   {
     id: 7,
@@ -112,7 +130,10 @@ export const usersInfo = [
     team: 'MLTeam',
     joinTime: 'May, 2019',
     resumeLink: 'kimia-resume.com',
+    location: 'Japan / Tokyo',
     linkedInPage: 'linkedin.com/in/kimia-hasani',
+    about:
+      'Specializes in developing and deploying machine learning models. Enjoys solving complex problems with AI.',
   },
   {
     id: 8,
@@ -127,7 +148,10 @@ export const usersInfo = [
     team: 'SysAdminTeam',
     joinTime: 'July, 2018',
     resumeLink: 'jalil-resume.com',
+    location: 'Netherlands / Amsterdam',
     linkedInPage: 'linkedin.com/in/jalil-asadi',
+    about:
+      'Experienced in managing and maintaining IT infrastructure. Skilled in network security and server management.',
   },
   {
     id: 9,
@@ -142,7 +166,10 @@ export const usersInfo = [
     team: 'MobileTeam',
     joinTime: 'September, 2017',
     resumeLink: 'sara-resume.com',
+    location: 'Spain / Madrid',
     linkedInPage: 'linkedin.com/in/sara-mohammadi',
+    about:
+      'Expert in developing cross-platform mobile applications using Flutter and React Native. Passionate about mobile UX.',
   },
   {
     id: 10,
@@ -157,7 +184,10 @@ export const usersInfo = [
     team: 'CloudTeam',
     joinTime: 'November, 2016',
     resumeLink: 'ali-resume.com',
+    location: 'Brazil / Sao Paulo',
     linkedInPage: 'linkedin.com/in/ali-rezaei',
+    about:
+      'Specializes in cloud infrastructure and services. Proficient in AWS, Azure, and Google Cloud Platform.',
   },
   {
     id: 11,
@@ -172,7 +202,10 @@ export const usersInfo = [
     team: 'SecTeam',
     joinTime: 'January, 2015',
     resumeLink: 'narges-resume.com',
+    location: 'India / Bangalore',
     linkedInPage: 'linkedin.com/in/narges-karimi',
+    about:
+      'Expert in cybersecurity and threat analysis. Passionate about protecting systems and data from vulnerabilities.',
   },
   {
     id: 12,
@@ -187,7 +220,10 @@ export const usersInfo = [
     team: 'GameDevTeam',
     joinTime: 'March, 2014',
     resumeLink: 'amir-resume.com',
+    location: 'South Korea / Seoul',
     linkedInPage: 'linkedin.com/in/amir-hosseini',
+    about:
+      'Passionate about game development and interactive storytelling. Proficient in Unity and Unreal Engine.',
   },
   {
     id: 13,
@@ -202,7 +238,10 @@ export const usersInfo = [
     team: 'AIResearchTeam',
     joinTime: 'May, 2023',
     resumeLink: 'fatemeh-resume.com',
+    location: 'Switzerland / Zurich',
     linkedInPage: 'linkedin.com/in/fatemeh-alizadeh',
+    about:
+      'Focuses on advancing AI research and developing innovative algorithms. Enjoys exploring the frontiers of machine learning.',
   },
   {
     id: 14,
@@ -217,7 +256,10 @@ export const usersInfo = [
     team: 'BlockchainTeam',
     joinTime: 'July, 2022',
     resumeLink: 'mohsen-resume.com',
+    location: 'Singapore / Singapore',
     linkedInPage: 'linkedin.com/in/mohsen-ebrahimi',
+    about:
+      'Specializes in blockchain technology and smart contracts. Passionate about decentralized applications.',
   },
   {
     id: 15,
@@ -232,7 +274,10 @@ export const usersInfo = [
     team: 'ArchitectureTeam',
     joinTime: 'September, 2021',
     resumeLink: 'zahra-resume.com',
+    location: 'UAE / Dubai',
     linkedInPage: 'linkedin.com/in/zahra-rahimi',
+    about:
+      'Experienced in designing scalable and maintainable software systems. Enjoys solving complex architectural challenges.',
   },
 ]
 
