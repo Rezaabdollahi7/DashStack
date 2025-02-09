@@ -28,6 +28,6 @@ CustomInput.propTypes = {
   inputId: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
-  hasIcon: PropTypes.bool,
+  hasIcon: PropTypes.object,
   children: PropTypes.object,
 }
