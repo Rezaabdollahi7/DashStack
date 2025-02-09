@@ -12,6 +12,7 @@ export default function UserAbout({ user }) {
       <textarea
         name='about'
         id='about'
+        readOnly
         value={user.about}
         className='h-40 rounded-2xl border border-gray-200 bg-gray-50 px-3 py-3'
       ></textarea>

@@ -16,7 +16,7 @@ const personalInfoFields = [
 
 export default function PersonalInfo({ user }) {
   return (
-    <section className='personal-info text-light-black order-2 col-span-12 flex w-full flex-col gap-y-6 rounded-3xl border border-slate-700 bg-white px-5 py-8 lg:order-1 lg:col-span-8'>
+    <section className='personal-info text-light-black  col-span-12 flex w-full flex-col gap-y-6 rounded-3xl border border-slate-700 bg-white px-5 py-8  lg:col-span-8'>
       {/*  title */}
       <div className='personal-top-section flex w-full items-center justify-between'>
         <div className='title flex flex-col'>
