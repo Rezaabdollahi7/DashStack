@@ -1,5 +1,5 @@
 import AvTimerIcon from '@mui/icons-material/AvTimer'
-import { lastVisitedUsers } from '../../consts'
+import { lastVisitedUsers } from '../../constants/LastVisited'
 export default function LastVisited() {
   return (
     <section className='mt-12 w-full rounded-2xl bg-white p-4 shadow'>

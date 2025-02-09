@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ReactApexChart from 'react-apexcharts'
-import { salesDetailsData } from '../../consts'
+import { salesDetailsData } from '../../constants/SalesDetails'
 const MyApexChart = () => {
   const [state] = useState({
     series: [

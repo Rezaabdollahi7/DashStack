@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/icons/Logo.svg'
-import { sidebarLinks } from '../../consts'
+import { sidebarLinks } from '../../constants/SidebarLinks'
 
 export default function Sidebar() {
   return (
@@ -15,7 +15,7 @@ export default function Sidebar() {
         />
 
         {sidebarLinks.map((Link, index) => (
-          <>
+          <div key={index}>
             <NavLink
               key={Link.Link}
               to={Link.Link}
@@ -42,7 +42,7 @@ export default function Sidebar() {
                 <hr className='text-gray-200' />
               </>
             )}
-          </>
+          </div>
         ))}
       </div>
     </section>

@@ -1,6 +1,6 @@
-import Stats from '../../components/Home/Stats'
+import Stats from './Stats'
 import MyApexChart from '../../components/charts/ApexChart'
-import LastVisited from '../../components/Home/LastVisited'
+import LastVisited from './LastVisited'
 import HeroTitle from '../../components/common/HeroTitle'
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import { dashboardStats } from '../../consts'
+import { dashboardStats } from '../../constants/DashboardStats'
 export default function Stats() {
   return (
     <div className='stats-wrapper mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
