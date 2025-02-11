@@ -1,17 +1,16 @@
 import Box from '@mui/material/Box'
 import { DataGrid } from '@mui/x-data-grid'
-import Button from '@mui/material/Button'
-import { Tooltip } from '@mui/material'
-import PropTypes from 'prop-types'
-import ColorCircle from '../../components/common/ColorCircle'
 
-import { FaEdit, FaTrash } from 'react-icons/fa'
+import ColorCircle from '../../components/common/ColorCircle'
 
 import products1Logo from '/src/assets/images/ProductStock/Image.png'
 import products2Logo from '/src/assets/images/ProductStock/Image2.png'
 import products3Logo from '/src/assets/images/ProductStock/Image1.png'
 import products4Logo from '/src/assets/images/ProductStock/Image3.png'
 import products5Logo from '/src/assets/images/ProductStock/Image4.png'
+import { useState } from 'react'
+import Removebutton from '../../components/common/Removebutton'
+import ActionButtons from '../../constants/ActionButtons'
 
 export const rows = [
   {
@@ -61,7 +60,7 @@ export const rows = [
   },
 ]
 
-export const columns = [
+export const columns = (handleDelete) => [
   {
     field: 'image',
     headerName: 'Image',
@@ -112,55 +111,33 @@ export const columns = [
     sortable: false,
     width: 160,
     renderCell: (params) => (
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        <Tooltip title='ویرایش'>
-          <Button
-            variant='contained'
-            sx={{
-              minWidth: 45,
-              padding: '8px',
-              borderRadius: '6px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#E3F2FD',
-              color: '#1565c0',
-              boxShadow: 'none',
-              transition: '0.2s',
-              '&:hover': { backgroundColor: '#BBDEFB' },
-            }}
-            onClick={() => console.log('Edit:', params.row)}
-          >
-            <FaEdit size={16} />
-          </Button>
-        </Tooltip>
-        <Tooltip title='حذف'>
-          <Button
-            variant='contained'
-            sx={{
-              minWidth: 45,
-              padding: '8px',
-              borderRadius: '6px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#FFEBEE',
-              color: '#D32F2F',
-              boxShadow: 'none',
-              transition: '0.2s',
-              '&:hover': { backgroundColor: '#FFCDD2' },
-            }}
-            onClick={() => console.log('Delete:', params.row)}
-          >
-            <FaTrash size={16} />
-          </Button>
-        </Tooltip>
+      <Box>
+        <ActionButtons handleDelete={handleDelete} params={params} />
       </Box>
     ),
   },
 ]
 
-const ProductDataGrid = ({ rows, columns }) => {
+const ProductDataGrid = () => {
+  const [rowsData, setRowsData] = useState(rows)
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
+  const [selectedId, setSelectedId] = useState(null)
+
+  const handleDeleteClick = (id) => {
+    setSelectedId(id)
+    setOpenDeleteDialog(true)
+  }
+
+  const handleDeleteConfirm = () => {
+    setRowsData((prevRows) =>
+      prevRows.filter((Proudct) => Proudct.id !== selectedId),
+    )
+    setOpenDeleteDialog(false)
+  }
+
+  const handleDeleteCancel = () => {
+    setOpenDeleteDialog(false)
+  }
   return (
     <Box
       sx={{
@@ -171,39 +148,21 @@ const ProductDataGrid = ({ rows, columns }) => {
       }}
     >
       <DataGrid
-        rows={rows}
-        columns={columns}
+        rows={rowsData}
+        columns={columns(handleDeleteClick)}
         pageSize={5}
         rowsPerPageOptions={[5]}
         disableRowSelectionOnClick
       />
+      <Removebutton
+        rows={rows}
+        setRowsData={setRowsData}
+        handleDeleteConfirm={handleDeleteConfirm}
+        handleDeleteCancel={handleDeleteCancel}
+        openDeleteDialog={openDeleteDialog}
+      />
     </Box>
   )
-}
-
-ProductDataGrid.propTypes = {
-  rows: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      productName: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      category: PropTypes.string.isRequired,
-      piece: PropTypes.number.isRequired,
-      availableColor: PropTypes.arrayOf(PropTypes.string).isRequired,
-    }),
-  ).isRequired,
-  columns: PropTypes.arrayOf(
-    PropTypes.shape({
-      field: PropTypes.string.isRequired,
-      headerName: PropTypes.string.isRequired,
-      width: PropTypes.number.isRequired,
-      renderCell: PropTypes.func,
-      editable: PropTypes.bool,
-      sortable: PropTypes.bool,
-      type: PropTypes.string,
-    }),
-  ).isRequired,
 }
 
 export default ProductDataGrid
