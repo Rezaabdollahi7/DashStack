@@ -1,8 +1,12 @@
 import Box from '@mui/material/Box'
 import { DataGrid } from '@mui/x-data-grid'
 import Button from '@mui/material/Button'
+import { Tooltip } from '@mui/material'
 import PropTypes from 'prop-types'
 import ColorCircle from '../../components/common/ColorCircle'
+
+import { FaEdit, FaTrash } from 'react-icons/fa'
+
 import products1Logo from '/src/assets/images/ProductStock/Image.png'
 import products2Logo from '/src/assets/images/ProductStock/Image2.png'
 import products3Logo from '/src/assets/images/ProductStock/Image1.png'
@@ -108,23 +112,52 @@ export const columns = [
     sortable: false,
     width: 160,
     renderCell: (params) => (
-      <Box sx={{ display: 'flex', gap: 2 }}>
-        <Button
-          variant='contained'
-          color='primary'
-          onClick={() => console.log('Edit:', params.row)}
-          sx={{ minWidth: 80 }}
-        >
-          Edit
-        </Button>
-        <Button
-          variant='contained'
-          color='secondary'
-          onClick={() => console.log('Delete:', params.row)}
-          sx={{ minWidth: 80 }}
-        >
-          Delete
-        </Button>
+      <Box sx={{ display: 'flex', gap: 1 }}>
+        {/* دکمه ویرایش */}
+        <Tooltip title='ویرایش'>
+          <Button
+            variant='contained'
+            sx={{
+              minWidth: 45,
+              padding: '8px',
+              borderRadius: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#E3F2FD',
+              color: '#1565c0',
+              boxShadow: 'none',
+              transition: '0.2s',
+              '&:hover': { backgroundColor: '#BBDEFB' },
+            }}
+            onClick={() => console.log('Edit:', params.row)}
+          >
+            <FaEdit size={16} />
+          </Button>
+        </Tooltip>
+
+        {/* دکمه حذف */}
+        <Tooltip title='حذف'>
+          <Button
+            variant='contained'
+            sx={{
+              minWidth: 45,
+              padding: '8px',
+              borderRadius: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#FFEBEE',
+              color: '#D32F2F',
+              boxShadow: 'none',
+              transition: '0.2s',
+              '&:hover': { backgroundColor: '#FFCDD2' },
+            }}
+            onClick={() => console.log('Delete:', params.row)}
+          >
+            <FaTrash size={16} />
+          </Button>
+        </Tooltip>
       </Box>
     ),
   },
@@ -132,14 +165,20 @@ export const columns = [
 
 const ProductDataGrid = ({ rows, columns }) => {
   return (
-    <Box sx={{ height: 400, width: '100%' }}>
+    <Box
+      sx={{
+        height: 480,
+        width: '100%',
+        padding: 2,
+        backgroundColor: '#fff',
+      }}
+    >
       <DataGrid
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         disableRowSelectionOnClick
-        sx={{ paddingBottom: '20px' }}
       />
     </Box>
   )
