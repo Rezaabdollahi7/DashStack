@@ -13,45 +13,45 @@ export const rows = [
   {
     id: 1,
     image: products1Logo,
-    productName: 'Product A',
-    price: 100,
+    productName: 'Apple Watch Series 4',
     category: 'Electronics',
+    price: 100,
     piece: 10,
     availableColor: ['Red', 'Green', 'Blue', 'Purple'],
   },
   {
     id: 2,
     image: products2Logo,
-    productName: 'Product B',
-    price: 200,
+    productName: 'Microsoft Headsquare',
     category: 'Clothing',
+    price: 200,
     piece: 15,
     availableColor: ['Blue', 'Yellow', 'Orange', 'Pink'],
   },
   {
     id: 3,
     image: products3Logo,
-    productName: 'Product C',
-    price: 150,
+    productName: 'Women’s Dress',
     category: 'Furniture',
+    price: 150,
     piece: 8,
     availableColor: ['Green', 'Orange', 'Yellow', 'Red'],
   },
   {
     id: 4,
     image: products4Logo,
-    productName: 'Product D',
-    price: 80,
+    productName: 'Samsung A50',
     category: 'Sports',
+    price: 80,
     piece: 20,
     availableColor: ['Yellow', 'Purple', 'Blue', 'Green'],
   },
   {
     id: 5,
     image: products5Logo,
-    productName: 'Product E',
-    price: 250,
+    productName: 'Camera',
     category: 'Toys',
+    price: 250,
     piece: 5,
     availableColor: ['Pink', 'Blue', 'Red', 'Purple'],
   },
@@ -139,6 +139,7 @@ const ProductDataGrid = ({ rows, columns }) => {
         pageSize={5}
         rowsPerPageOptions={[5]}
         disableRowSelectionOnClick
+        sx={{ paddingBottom: '20px' }}
       />
     </Box>
   )
