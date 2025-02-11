@@ -113,7 +113,6 @@ export const columns = [
     width: 160,
     renderCell: (params) => (
       <Box sx={{ display: 'flex', gap: 1 }}>
-        {/* دکمه ویرایش */}
         <Tooltip title='ویرایش'>
           <Button
             variant='contained'
@@ -135,8 +134,6 @@ export const columns = [
             <FaEdit size={16} />
           </Button>
         </Tooltip>
-
-        {/* دکمه حذف */}
         <Tooltip title='حذف'>
           <Button
             variant='contained'
