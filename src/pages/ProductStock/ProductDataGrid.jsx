@@ -111,7 +111,15 @@ export const columns = (handleDelete) => [
     sortable: false,
     width: 160,
     renderCell: (params) => (
-      <Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+        }}
+      >
         <ActionButtons handleDelete={handleDelete} params={params} />
       </Box>
     ),

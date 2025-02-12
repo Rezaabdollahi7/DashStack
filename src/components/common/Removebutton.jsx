@@ -14,9 +14,18 @@ function Removebutton({
 }) {
   return (
     <div>
-      <Dialog open={openDeleteDialog} onClose={handleDeleteCancel}>
+      <Dialog
+        open={openDeleteDialog}
+        onClose={handleDeleteCancel}
+        sx={{ padding: '10px' }}
+      >
         <DialogTitle
-          sx={{ fontWeight: 'bold', textAlign: 'center', color: '#D32F2F' }}
+          sx={{
+            position: 'absolute',
+            bottom: 10,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
         >
           تأیید حذف
         </DialogTitle>
