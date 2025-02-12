@@ -11,8 +11,9 @@ import {
 import { CiInboxIn, CiStar, CiTrash } from 'react-icons/ci'
 import { AiOutlineSend, AiOutlineFileText } from 'react-icons/ai'
 import { MdDrafts } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
-function Sidebar({ itemCount }) {
+function Sidebar() {
   return (
     <Box
       sx={{
@@ -30,12 +31,42 @@ function Sidebar({ itemCount }) {
 
       <List>
         {[
-          { text: 'Inbox', icon: <CiInboxIn size={25} />, badge: 235 },
-          { text: 'Starred', icon: <CiStar size={25} />, badge: 522 },
-          { text: 'Sent', icon: <AiOutlineSend size={25} />, badge: 21 },
-          { text: 'Draft', icon: <AiOutlineFileText size={25} />, badge: 2 },
-          { text: 'Spam', icon: <MdDrafts size={25} />, badge: 45 },
-          { text: 'Bin', icon: <CiTrash size={25} />, badge: 57 },
+          {
+            text: 'Inbox',
+            icon: <CiInboxIn size={25} />,
+            badge: 235,
+            link: '/inbox',
+          },
+          {
+            text: 'Starred',
+            icon: <CiStar size={25} />,
+            badge: 522,
+            link: '/inbox/starred',
+          },
+          {
+            text: 'Sent',
+            icon: <AiOutlineSend size={25} />,
+            badge: 21,
+            link: '/inbox/sent',
+          },
+          {
+            text: 'Draft',
+            icon: <AiOutlineFileText size={25} />,
+            badge: 2,
+            link: '/inbox/draft',
+          },
+          {
+            text: 'Spam',
+            icon: <MdDrafts size={25} />,
+            badge: 45,
+            link: '/inbox/spam',
+          },
+          {
+            text: 'Bin',
+            icon: <CiTrash size={25} />,
+            badge: 57,
+            link: '/inbox/bin',
+          },
         ].map((item, index) => (
           <ListItem
             key={index}
@@ -49,42 +80,47 @@ function Sidebar({ itemCount }) {
               borderRadius: 3,
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '100%',
-                justifyContent: 'space-between',
-              }}
+            <Link
+              to={item.link}
+              style={{ display: 'flex', alignItems: 'center', width: '100%' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                {item.icon}
-                <span
-                  style={{
-                    marginLeft: '10px',
-                    fontSize: '18px',
-                    color: '#000000',
-                    fontWeight: '500',
-                    transition: 'font-weight 0.3s ease',
-                  }}
-                  className='hover-text'
-                >
-                  {item.text}
-                </span>
-              </div>
-              <Avatar
-                sx={{
-                  bgcolor: 'white',
-                  width: 30,
-                  height: 30,
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  color: 'black',
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: '100%',
+                  justifyContent: 'space-between',
                 }}
               >
-                {item.badge}
-              </Avatar>
-            </div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  {item.icon}
+                  <span
+                    style={{
+                      marginLeft: '10px',
+                      fontSize: '18px',
+                      color: '#000000',
+                      fontWeight: '500',
+                      transition: 'font-weight 0.3s ease',
+                    }}
+                    className='hover-text'
+                  >
+                    {item.text}
+                  </span>
+                </div>
+                <Avatar
+                  sx={{
+                    bgcolor: 'white',
+                    width: 30,
+                    height: 30,
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    color: 'black',
+                  }}
+                >
+                  {item.badge}
+                </Avatar>
+              </div>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -140,13 +176,21 @@ function Sidebar({ itemCount }) {
     </Box>
   )
 }
-
 Sidebar.propTypes = {
-  itemCount: PropTypes.number,
-}
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      icon: PropTypes.node.isRequired,
+      badge: PropTypes.number.isRequired,
+      link: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 
-Sidebar.defaultProps = {
-  itemCount: 10,
+  labels: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 }
 
 export default Sidebar
