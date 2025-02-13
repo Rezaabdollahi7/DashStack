@@ -1,5 +1,5 @@
 function Draft() {
-  return <div></div>
+  return <div>c</div>
 }
 
 export default Draft

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import {
   Box,
   List,
@@ -8,12 +7,11 @@ import {
   Avatar,
   Button,
 } from '@mui/material'
-import { CiInboxIn, CiStar, CiTrash } from 'react-icons/ci'
-import { AiOutlineSend, AiOutlineFileText } from 'react-icons/ai'
-import { MdDrafts } from 'react-icons/md'
-import { Link } from 'react-router-dom'
 
-function Sidebar() {
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+function Sidebar({ items }) {
   return (
     <Box
       sx={{
@@ -30,44 +28,7 @@ function Sidebar() {
       <Typography variant='h6'>My Email</Typography>
 
       <List>
-        {[
-          {
-            text: 'Inbox',
-            icon: <CiInboxIn size={25} />,
-            badge: 235,
-            link: '/inbox',
-          },
-          {
-            text: 'Starred',
-            icon: <CiStar size={25} />,
-            badge: 522,
-            link: '/inbox/starred',
-          },
-          {
-            text: 'Sent',
-            icon: <AiOutlineSend size={25} />,
-            badge: 21,
-            link: '/inbox/sent',
-          },
-          {
-            text: 'Draft',
-            icon: <AiOutlineFileText size={25} />,
-            badge: 2,
-            link: '/inbox/draft',
-          },
-          {
-            text: 'Spam',
-            icon: <MdDrafts size={25} />,
-            badge: 45,
-            link: '/inbox/spam',
-          },
-          {
-            text: 'Bin',
-            icon: <CiTrash size={25} />,
-            badge: 57,
-            link: '/inbox/bin',
-          },
-        ].map((item, index) => (
+        {items.map((item, index) => (
           <ListItem
             key={index}
             button
@@ -167,28 +128,17 @@ function Sidebar() {
       </List>
 
       <Button sx={{ mt: 1, color: 'primary' }}>+ Create New Label</Button>
-
-      <Typography
-        variant='body2'
-        align='center'
-        sx={{ mt: 'auto', fontWeight: 'bold' }}
-      ></Typography>
     </Box>
   )
 }
+
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
-      icon: PropTypes.node.isRequired,
+      icon: PropTypes.element.isRequired,
       badge: PropTypes.number.isRequired,
       link: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-
-  labels: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
     }),
   ).isRequired,
 }

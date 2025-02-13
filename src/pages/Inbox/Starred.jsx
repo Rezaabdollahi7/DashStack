@@ -1,5 +1,5 @@
 function Starred() {
-  return <div></div>
+  return <div>Hi</div>
 }
 
 export default Starred

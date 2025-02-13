@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/common/Navbar'
 import routes from './routes'
 import Sidebar from './components/common/Sidebar'
+
 export default function App() {
   return (
     <main className='bg-light-main-bg overflow-x-hidden'>
@@ -16,13 +17,29 @@ export default function App() {
             <Navbar />
             <div className='px-6'>
               <Routes>
-                {routes.map((route, index) => (
-                  <Route
-                    key={index}
-                    path={route.path}
-                    element={route.element}
-                  />
-                ))}
+                {routes.map((route, index) => {
+                  return route.children ? (
+                    <Route
+                      key={index}
+                      path={route.path}
+                      element={route.element}
+                    >
+                      {route.children.map((childRoute, i) => (
+                        <Route
+                          key={i}
+                          path={childRoute.path}
+                          element={childRoute.element}
+                        />
+                      ))}
+                    </Route>
+                  ) : (
+                    <Route
+                      key={index}
+                      path={route.path}
+                      element={route.element}
+                    />
+                  )
+                })}
               </Routes>
             </div>
           </div>

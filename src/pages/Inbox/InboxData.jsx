@@ -11,6 +11,79 @@ import {
 } from '@mui/material'
 import { Search, Delete, Settings } from '@mui/icons-material'
 
+const emails = [
+  {
+    name: 'Juliu Jalal',
+    category: 'Privacy',
+    subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
+    time: '8:38 AM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Minerva Barnett',
+    category: 'Work',
+    subject: 'Get Best Advertiser In Your Side Pocket',
+    time: '8:13 AM',
+    color: '#D456FD',
+  },
+  {
+    name: 'Anthony Briggs',
+    category: 'Free Classifieds',
+    subject: 'Using Them To Promote Your Stuff Online',
+    time: '7:52 PM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Clifford Morgan',
+    category: 'Social',
+    subject: 'Enhance Your Brand Potential With Giant Advertising Blimps',
+    time: '4:13 PM',
+    color: '#5A8CFF',
+  },
+  {
+    name: 'Cecilia Webster',
+    category: 'Friends',
+    subject: 'Always Look On The Bright Side Of Life',
+    time: '3:52 PM',
+    color: '#D456FD',
+  },
+  {
+    name: 'Harvey Manning',
+    category: 'Lifestyle',
+    subject: 'Curling Irons Are As Individual As The Women Who Use Them',
+    time: '2:30 PM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Willie Blake',
+    category: 'Privacy',
+    subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
+    time: '8:38 AM',
+    color: '#FD9A56',
+  },
+  {
+    name: 'Fanny Weaver',
+    category: 'Free Classifieds',
+    subject: 'Using Them To Promote Your Stuff Online',
+    time: '7:52 PM',
+    color: '#FD9A56',
+  },
+  {
+    name: 'Olga Hogan',
+    category: 'Social',
+    subject: 'Enhance Your Brand Potential With Giant Advertising Blimps',
+    time: '4:13 PM',
+    color: '#D456FD',
+  },
+  {
+    name: 'Lora Houston',
+    category: 'Friends',
+    subject: 'Vacation Home Rental Success',
+    time: '7:52 PM',
+    color: '#00B69B',
+  },
+]
+
 function InboxData() {
   return (
     <Box
@@ -45,82 +118,7 @@ function InboxData() {
       </Box>
 
       <TableBody>
-        {[
-          {
-            name: 'Juliu Jalal',
-            category: 'Privacy',
-            subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
-            time: '8:38 AM',
-            color: '#00B69B',
-          },
-          {
-            name: 'Minerva Barnett',
-            category: 'Work',
-            subject: 'Get Best Advertiser In Your Side Pocket',
-            time: '8:13 AM',
-            color: '#D456FD',
-          },
-
-          {
-            name: 'Anthony Briggs',
-            category: 'Free Classifieds',
-            subject: 'Using Them To Promote Your Stuff Online',
-            time: '7:52 PM',
-            color: '#00B69B',
-          },
-          {
-            name: 'Clifford Morgan',
-            category: 'Social',
-            subject:
-              'Enhance Your Brand Potential With Giant Advertising Blimps',
-            time: '4:13 PM',
-            color: '#5A8CFF',
-          },
-          {
-            name: 'Cecilia Webster',
-            category: 'Friends',
-            subject: 'Always Look On The Bright Side Of Life',
-            time: '3:52 PM',
-            color: '#D456FD',
-          },
-          {
-            name: 'Harvey Manning',
-            category: 'Lifestyle',
-            subject:
-              'Curling Irons Are As Individual As The Women Who Use Them',
-            time: '2:30 PM',
-            color: '#00B69B',
-          },
-          {
-            name: 'Willie Blake',
-            category: 'Privacy',
-            subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
-            time: '8:38 AM',
-            color: '#FD9A56',
-          },
-          {
-            name: 'Fanny Weaver',
-            category: 'Free Classifieds',
-            subject: 'Using Them To Promote Your Stuff Online',
-            time: '7:52 PM',
-            color: '#FD9A56',
-          },
-          {
-            name: 'Olga Hogan',
-            category: 'Social',
-            subject:
-              'Enhance Your Brand Potential With Giant Advertising Blimps',
-            time: '4:13 PM',
-            color: '#D456FD',
-          },
-          {
-            name: 'Lora Houston',
-            category: 'Friends',
-            subject: 'Vacation Home Rental Success',
-            time: '7:52 PM',
-            color: '#00B69B',
-          },
-        ].map((email, index) => (
+        {emails.map((email, index) => (
           <TableRow key={index}>
             <TableCell padding='checkbox'>
               <input type='checkbox' />
@@ -168,6 +166,7 @@ function InboxData() {
     </Box>
   )
 }
+
 InboxData.propTypes = {
   emails: PropTypes.arrayOf(
     PropTypes.shape({
@@ -177,7 +176,7 @@ InboxData.propTypes = {
       time: PropTypes.string.isRequired,
       color: PropTypes.string,
     }),
-  ).isRequired,
+  ),
 }
 
 export default InboxData

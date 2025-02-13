@@ -1,5 +1,5 @@
 function Bin() {
-  return <div></div>
+  return <div>dsf</div>
 }
 
 export default Bin
