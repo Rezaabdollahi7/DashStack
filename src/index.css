@@ -33,3 +33,29 @@
 textarea{
   resize: none;
 }
+
+.rbc-toolbar-label{
+  font-size: 24px;
+  color: var(--color-light-black);
+  font-weight: 500;
+}
+
+.rbc-month-header{
+  background-color: #f1f4f9;
+  height: 48px !important;
+  color: var(--color-light-black);
+  padding-top: 1.5rem;
+  height: 4rem !important;
+  
+}
+
+.rbc-month-view{
+  margin-top: 2rem;
+   background-color: white;
+  border-radius: 15px !important;
+}
+
+.rbc-off-range-bg{
+ background-image: url('./assets/images/pattern.jpg') !important;
+ 
+}
