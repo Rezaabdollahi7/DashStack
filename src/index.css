@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-light-main-bg: #f7f7fa;
@@ -12,7 +12,6 @@
   --color-bg-yellow: #fef2d6;
   --color-bg-green: #d9f7d7;
   --color-bg-orange: #ffded2;
-
 }
 
 .css-5h82ro-MuiInputBase-root-MuiInput-root::before {
@@ -30,32 +29,61 @@
   border-radius: 0 5px 5px 0;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
-.rbc-toolbar-label{
+.rbc-toolbar-label {
   font-size: 24px;
   color: var(--color-light-black);
   font-weight: 500;
 }
 
-.rbc-month-header{
+.rbc-month-header {
   background-color: #f1f4f9;
   height: 48px !important;
   color: var(--color-light-black);
   padding-top: 1.5rem;
   height: 4rem !important;
-  
 }
 
-.rbc-month-view{
+.rbc-month-view {
   margin-top: 2rem;
-   background-color: white;
+  background-color: white;
   border-radius: 15px !important;
 }
 
-.rbc-off-range-bg{
- background-image: url('./assets/images/pattern.jpg') !important;
- 
+.rbc-off-range-bg {
+  background-image: url('./assets/images/pattern.jpg') !important;
+}
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+  background-color: var(--color-primary-light) !important;
+  color: var(--color-light-main-bg) !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.rbc-btn-group {
+  border: 2px solid var(--color-light-main-bg);
+  margin-top: 2rem;
+}
+@media screen and (max-width: 900px) {
+  .rbc-btn-group {
+    margin-top: 0rem;
+  }
+  .rbc-toolbar > span:first-child {
+    display: none !important;
+  }
+  .rbc-toolbar > span:last-child {
+    margin-top: 1rem;
+  }
+}
+.rbc-toolbar button {
+  padding: 0.75rem 1rem !important;
+}
+.rbc-toolbar button:last-child {
+  border-radius: 0 40px 40px 0 !important;
+}
+.rbc-toolbar button:first-child {
+  border-radius: 40px 0 0 40px !important;
 }
