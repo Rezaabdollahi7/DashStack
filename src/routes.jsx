@@ -7,7 +7,7 @@ const Inbox = lazy(() => import('./pages/Inbox/Inbox'))
 const OrderLists = lazy(() => import('./pages/OrderLists/OrderLists'))
 const ProductStock = lazy(() => import('./pages/ProductStock/ProductStock'))
 const Pricing = lazy(() => import('./pages/Pricing/Pricing'))
-const MyCalendar = lazy(() => import('./pages/Calendar/Calendar'))
+const CalendarLayout = lazy(() => import('./pages/Calendar/CalendarLayout'))
 const Todo = lazy(() => import('./pages/Todo/Todo'))
 const Contact = lazy(() => import('./pages/Contact/Contact'))
 const Settings = lazy(() => import('./pages/Settings/Settings'))
@@ -23,7 +23,7 @@ let routes = [
   { path: '/order-lists', element: <OrderLists /> },
   { path: '/product-stock', element: <ProductStock /> },
   { path: '/pricing', element: <Pricing /> },
-  { path: '/calendar', element: <MyCalendar /> },
+  { path: '/calendar', element: <CalendarLayout /> },
   { path: '/todo', element: <Todo /> },
   { path: '/contact', element: <Contact /> },
   { path: '/settings', element: <Settings /> },

@@ -9,7 +9,7 @@ import { initialEvents } from '../../constants/Events'
 const localizer = momentLocalizer(moment)
 const DnDCalendar = withDragAndDrop(Calendar)
 
-const MyCalendar = () => {
+const MainCalendar = () => {
   const [events, setEvents] = useState(initialEvents)
 
   const handleSelect = ({ start, end }) => {
@@ -48,7 +48,16 @@ const MyCalendar = () => {
   }
 
   return (
-    <div style={{ height: '800px', padding: '20px' }}>
+    <div
+      className='col-span-12 lg:col-span-9'
+      style={{
+        height: '800px',
+        padding: '20px',
+        backgroundColor: 'white',
+        border: '1px solid oklch(0.928 0.006 264.531)',
+        borderRadius: '1rem',
+      }}
+    >
       <DnDCalendar
         selectable
         localizer={localizer}
@@ -66,4 +75,4 @@ const MyCalendar = () => {
   )
 }
 
-export default MyCalendar
+export default MainCalendar

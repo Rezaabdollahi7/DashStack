@@ -12,6 +12,7 @@
   --color-bg-yellow: #fef2d6;
   --color-bg-green: #d9f7d7;
   --color-bg-orange: #ffded2;
+  --color-bg-melo-blue: #ebf1fb;
 }
 
 .css-5h82ro-MuiInputBase-root-MuiInput-root::before {
@@ -45,6 +46,7 @@ textarea {
   color: var(--color-light-black);
   padding-top: 1.5rem;
   height: 4rem !important;
+  border-radius: 15px 15px 0 0 !important;
 }
 
 .rbc-month-view {
@@ -64,7 +66,6 @@ textarea {
   -webkit-box-shadow: none !important;
 }
 .rbc-btn-group {
-  border: 2px solid var(--color-light-main-bg);
   margin-top: 2rem;
 }
 @media screen and (max-width: 900px) {
