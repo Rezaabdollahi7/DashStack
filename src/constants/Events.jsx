@@ -1,8 +1,29 @@
+import { RRule } from 'rrule'
 import eventImg1 from '../assets/images/CalenderEvents/img1.png'
 import eventImg2 from '../assets/images/CalenderEvents/img2.png'
 import eventImg3 from '../assets/images/CalenderEvents/img3.png'
 
-export const initialEvents = [
+const generateRecurringEvents = (event, startDate, endDate) => {
+  const rule = new RRule({
+    freq: RRule.MONTHLY,
+    dtstart: event.start,
+    until: endDate,
+  })
+
+  const dates = rule.between(startDate, endDate)
+
+  return dates.map((date, index) => ({
+    ...event,
+    id: event.id + 1000 * (index + 1),
+    start: date,
+    end: new Date(date.getTime() + (event.end - event.start)),
+  }))
+}
+
+const startDate = new Date(2025, 2, 1)
+const endDate = new Date(2026, 11, 31)
+
+const initialSingleEvents = [
   {
     id: 0,
     title: 'Work Meeting',
@@ -84,3 +105,9 @@ export const initialEvents = [
     img: eventImg1,
   },
 ]
+
+const recurringEvents = initialSingleEvents.flatMap((event) =>
+  generateRecurringEvents(event, startDate, endDate),
+)
+
+export const initialEvents = [...initialSingleEvents, ...recurringEvents]
