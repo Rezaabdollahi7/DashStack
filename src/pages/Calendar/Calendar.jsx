@@ -5,7 +5,8 @@ import { useState } from 'react'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 import { initialEvents } from '../../constants/Events'
-import EditEventModal from './EditEventModal' 
+import EditEventModal from './EditEventModal'
+import EventDetailsModal from './EventDetailsModal'
 
 const localizer = momentLocalizer(moment)
 const DnDCalendar = withDragAndDrop(Calendar)
@@ -13,7 +14,13 @@ const DnDCalendar = withDragAndDrop(Calendar)
 const MainCalendar = () => {
   const [events, setEvents] = useState(initialEvents)
   const [editModalOpen, setEditModalOpen] = useState(false)
+  const [detailsModalOpen, setDetailsModalOpen] = useState(false)
   const [selectedEvent, setSelectedEvent] = useState(null)
+
+  const handleEditClick = () => {
+    setDetailsModalOpen(false)
+    setEditModalOpen(true)
+  }
 
   const handleEventEdit = (event) => {
     setSelectedEvent(event)
@@ -60,6 +67,11 @@ const MainCalendar = () => {
     }
   }
 
+  const handleEventClick = (event) => {
+    setSelectedEvent(event)
+    setDetailsModalOpen(true)
+  }
+
   return (
     <div
       className='col-span-12 lg:col-span-9'
@@ -84,13 +96,19 @@ const MainCalendar = () => {
         draggableAccessor={() => true}
         eventPropGetter={eventStyleGetter}
         onDoubleClickEvent={handleEventEdit}
-        
+        onSelectEvent={handleEventClick}
       />
       <EditEventModal
         open={editModalOpen}
         onClose={() => setEditModalOpen(false)}
         event={selectedEvent}
         onSave={handleSaveEvent}
+      />
+      <EventDetailsModal
+        open={detailsModalOpen}
+        onClose={() => setDetailsModalOpen(false)}
+        event={selectedEvent}
+        onEdit={handleEditClick}
       />
     </div>
   )

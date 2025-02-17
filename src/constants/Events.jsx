@@ -31,6 +31,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 14, 11, 0),
     category: 'meeting',
     img: eventImg1,
+    description: 'A team meeting to discuss project updates and next steps.',
   },
   {
     id: 1,
@@ -39,6 +40,8 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 15, 19, 0),
     category: 'sport',
     img: eventImg2,
+    description:
+      'An intense workout session at the gym to stay fit and healthy.',
   },
   {
     id: 2,
@@ -47,6 +50,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 16, 10, 0),
     category: 'personal',
     img: eventImg3,
+    description: 'A routine check-up with the doctor to monitor health.',
   },
   {
     id: 3,
@@ -55,6 +59,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 17, 15, 0),
     category: 'meeting',
     img: eventImg1,
+    description: 'A sync-up meeting with the team to align on tasks and goals.',
   },
   {
     id: 4,
@@ -63,6 +68,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 18, 22, 0),
     category: 'personal',
     img: eventImg2,
+    description: 'A cozy dinner with family to spend quality time together.',
   },
   {
     id: 5,
@@ -71,6 +77,8 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 19, 17, 0),
     category: 'meeting',
     img: eventImg3,
+    description:
+      'A conference call with external stakeholders to discuss collaboration.',
   },
   {
     id: 6,
@@ -79,6 +87,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 20, 8, 0),
     category: 'sport',
     img: eventImg1,
+    description: 'A morning run to kickstart the day with energy.',
   },
   {
     id: 7,
@@ -87,6 +96,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 22, 0, 0),
     category: 'work',
     img: eventImg2,
+    description: 'Finalizing and submitting the project before the deadline.',
   },
   {
     id: 8,
@@ -95,6 +105,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 22, 13, 0),
     category: 'personal',
     img: eventImg3,
+    description: 'A casual lunch with a friend to catch up and relax.',
   },
   {
     id: 9,
@@ -103,6 +114,7 @@ const initialSingleEvents = [
     end: new Date(2025, 1, 23, 18, 0),
     category: 'sport',
     img: eventImg1,
+    description: 'A yoga session to relax the mind and strengthen the body.',
   },
 ]
 
