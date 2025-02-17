@@ -28,9 +28,14 @@ let routes = [
   { path: '/favorites', element: <Favorites /> },
   {
     path: '/inbox',
-    element: <Inbox />,
+    element: (
+      <Inbox>
+        <InboxData />
+      </Inbox>
+    ),
     children: [
-      { path: '', element: <InboxData /> },
+      { index: true, element: <InboxData /> },
+      { path: 'inboxs', element: <InboxData /> },
       { path: 'starred', element: <Starred /> },
       { path: 'sent', element: <Sent /> },
       { path: 'spam', element: <Spam /> },

@@ -4,12 +4,13 @@ import { Outlet } from 'react-router-dom'
 import { CiInboxIn, CiStar, CiTrash } from 'react-icons/ci'
 import { AiOutlineSend, AiOutlineFileText } from 'react-icons/ai'
 import { MdDrafts } from 'react-icons/md'
+import { Grid } from '@mui/material'
 const items = [
   {
     text: 'Inbox',
     icon: <CiInboxIn size={25} />,
     badge: 235,
-    link: '/inbox/inbox',
+    link: '/inbox/inboxs',
   },
   {
     text: 'Starred',
@@ -46,10 +47,11 @@ export default function Inbox() {
   return (
     <div>
       <HeroTitle name='Inbox' />
+      <Grid container>
+        <Sidebar items={items} />
 
-      <Sidebar items={items} />
-
-      <Outlet />
+        <Outlet />
+      </Grid>
     </div>
   )
 }
