@@ -1,4 +1,5 @@
 import HeroTitle from '../../components/common/HeroTitle'
+import Booked from './Booked'
 import CurrentBalanceCart from './CurrentBalanceCart'
 
 export default function ProductsLayout() {
@@ -10,6 +11,10 @@ export default function ProductsLayout() {
           <div className='col-span-4 row-span-3 bg-blue-200'>1</div>
           <div className='current-balance col-span-3 row-span-2 rounded-lg bg-white p-5'>
             <CurrentBalanceCart />
+          </div>
+
+          <div className='col-span-3 row-span-2 rounded-lg bg-white p-5'>
+            <Booked />
           </div>
 
           <div className='col-span-2 row-span-1 bg-blue-200'>4</div>
