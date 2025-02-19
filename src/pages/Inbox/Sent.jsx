@@ -1,5 +1,5 @@
 function Sent() {
-  return <div>b</div>
+  return <div>No content</div>
 }
 
 export default Sent

@@ -1,5 +1,5 @@
 function Draft() {
-  return <div>c</div>
+  return <div>No content</div>
 }
 
 export default Draft

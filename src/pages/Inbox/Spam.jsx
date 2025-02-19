@@ -1,5 +1,5 @@
 function Spam() {
-  return <div>طس</div>
+  return <div>No content</div>
 }
 
 export default Spam

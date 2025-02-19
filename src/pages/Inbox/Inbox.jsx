@@ -1,56 +1,49 @@
 import HeroTitle from '../../components/common/HeroTitle'
 import Sidebar from './Sidebar'
 import { Outlet } from 'react-router-dom'
-import { CiInboxIn, CiStar, CiTrash } from 'react-icons/ci'
-import { AiOutlineSend, AiOutlineFileText } from 'react-icons/ai'
-import { MdDrafts } from 'react-icons/md'
-import { Grid } from '@mui/material'
-const items = [
-  {
-    text: 'Inbox',
-    icon: <CiInboxIn size={25} />,
-    badge: 235,
-    link: '/inbox/inboxs',
-  },
-  {
-    text: 'Starred',
-    icon: <CiStar size={25} />,
-    badge: 522,
-    link: '/inbox/starred',
-  },
-  {
-    text: 'Sent',
-    icon: <AiOutlineSend size={25} />,
-    badge: 21,
-    link: '/inbox/sent',
-  },
-  {
-    text: 'Draft',
-    icon: <AiOutlineFileText size={25} />,
-    badge: 2,
-    link: '/inbox/draft',
-  },
-  {
-    text: 'Spam',
-    icon: <MdDrafts size={25} />,
-    badge: 45,
-    link: '/inbox/spam',
-  },
-  {
-    text: 'Bin',
-    icon: <CiTrash size={25} />,
-    badge: 57,
-    link: '/inbox/bin',
-  },
-]
+
+import { Box, Grid, IconButton, TextField } from '@mui/material'
+import { Search } from '@mui/icons-material'
+
+import { useState } from 'react'
+
 export default function Inbox() {
+  const [searchTerm, setSearchTerm] = useState('')
   return (
     <div>
       <HeroTitle name='Inbox' />
       <Grid container>
-        <Sidebar items={items} />
+        <Sidebar />
 
-        <Outlet />
+        <Box
+          sx={{
+            width: 980,
+            height: 660,
+            p: 3,
+            ml: 'auto',
+            boxShadow: 2,
+            bgcolor: 'background.paper',
+          }}
+        >
+          <Box display='flex' alignItems='center' mb={2}>
+            <TextField
+              fullWidth
+              placeholder='Search mail by name'
+              variant='outlined'
+              size='small'
+              sx={{ maxWidth: 400 }}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Box display='flex' ml='auto'>
+              <IconButton>
+                <Search />
+              </IconButton>
+            </Box>
+          </Box>
+
+          <Outlet searchTerm={searchTerm} />
+        </Box>
       </Grid>
     </div>
   )

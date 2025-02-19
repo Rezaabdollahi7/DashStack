@@ -1,0 +1,58 @@
+export const initialEmails = [
+  {
+    name: 'Juliu Jalal',
+    category: 'Privacy',
+    subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
+    time: '8:38 AM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Minerva Barnett',
+    category: 'Work',
+    subject: 'Get Best Advertiser In Your Side Pocket',
+    time: '8:13 AM',
+    color: '#D456FD',
+  },
+  {
+    name: 'Juliu Jalal',
+    category: 'Privacy',
+    subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
+    time: '8:38 AM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Minerva Barnett',
+    category: 'Work',
+    subject: 'Get Best Advertiser In Your Side Pocket',
+    time: '8:13 AM',
+    color: '#D456FD',
+  },
+  {
+    name: 'Juliu Jalal',
+    category: 'Privacy',
+    subject: 'Our Bachelor of Commerce program is ACBSP-accredited.',
+    time: '8:38 AM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Minerva Barnett',
+    category: 'Work',
+    subject: 'Get Best Advertiser In Your Side Pocket',
+    time: '8:13 AM',
+    color: '#D456FD',
+  },
+  {
+    name: 'Anthony Briggs',
+    category: 'Free Classifieds',
+    subject: 'Using Them To Promote Your Stuff Online',
+    time: '7:52 PM',
+    color: '#00B69B',
+  },
+  {
+    name: 'Clifford Morgan',
+    category: 'Social',
+    subject: 'Enhance Your Brand Potential With Giant Advertising Blimps',
+    time: '4:13 PM',
+    color: '#5A8CFF',
+  },
+]

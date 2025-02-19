@@ -10,8 +10,9 @@ import {
 
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { items } from '../../constants/ItemsSidebarInbox'
 
-function Sidebar({ items }) {
+function Sidebar() {
   return (
     <Box
       sx={{
