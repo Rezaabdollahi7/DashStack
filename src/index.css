@@ -13,6 +13,8 @@
   --color-bg-green: #d9f7d7;
   --color-bg-orange: #ffded2;
   --color-bg-melo-blue: #ebf1fb;
+
+  --pattern-img: url('./assets/images/pricingPattern.png');
 }
 
 .css-5h82ro-MuiInputBase-root-MuiInput-root::before {
