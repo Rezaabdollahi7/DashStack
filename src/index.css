@@ -13,6 +13,10 @@
   --color-bg-green: #d9f7d7;
   --color-bg-orange: #ffded2;
   --color-bg-melo-blue: #ebf1fb;
+  --color-dark-green: #00a76f;
+  --color-main-green: #22c55e;
+  --color-main-yellow: #ffab00;
+  --color-main-red: #ff5630;
 
   --pattern-img: url('./assets/images/pricingPattern.png');
 }
