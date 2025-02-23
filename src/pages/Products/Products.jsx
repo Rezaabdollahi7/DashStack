@@ -4,6 +4,7 @@ import Booked from './Booked'
 import CurrentBalanceCart from './CurrentBalanceCart'
 import { productsStatsData } from '../../constants/ProductsStatsData'
 import StatsCard from './StatsCard'
+import LastProducts from './LastProducts'
 
 export default function ProductsLayout() {
   return (
@@ -33,7 +34,9 @@ export default function ProductsLayout() {
             ))}
           </div>
         </div>
-        <div className='col-span-3 bg-red-100'>5</div>
+        <div className='col-span-3 rounded-lg bg-white p-5'>
+          <LastProducts />
+        </div>
       </section>
     </div>
   )
