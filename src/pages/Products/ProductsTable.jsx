@@ -1,4 +1,4 @@
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import moment from 'moment'
 import img from '../../assets/images/LastProducts/img1.png'
 import { useState, useMemo } from 'react'
@@ -10,7 +10,8 @@ const columns = [
     field: 'Product',
     headerName: 'Product',
     width: 400,
-    editable: true,
+    headerAlign: 'center',
+
     renderCell: (params) => {
       return (
         <div className='flex w-full items-center justify-start gap-4'>
@@ -33,8 +34,8 @@ const columns = [
     field: 'created',
     headerName: 'Create at',
     width: 250,
-    editable: true,
-    align: 'left',
+    headerAlign: 'center',
+    align: 'center',
     type: 'date',
     renderCell: (params) => {
       return <span>{moment(params.row.created).format('lll')}</span>
@@ -45,7 +46,7 @@ const columns = [
     headerName: 'Stock',
     type: 'number',
     width: 150,
-    editable: true,
+    headerAlign: 'center',
     align: 'left',
     renderCell: (params) => {
       const percent = Math.floor((params.row.Stock / 100) * 100)
@@ -77,7 +78,8 @@ const columns = [
     description: 'This column has a value getter and is not sortable.',
     type: 'number',
     width: 150,
-    align: 'left',
+    headerAlign: 'center',
+    align: 'center',
     renderCell: (params) => {
       return `$${params.row.Price}`
     },
@@ -87,8 +89,8 @@ const columns = [
     headerName: 'Publish',
     type: 'string',
     width: 150,
-    editable: true,
-    align: 'left',
+    headerAlign: 'center',
+    align: 'center',
     renderCell: (params) => {
       return (
         <div>
@@ -245,6 +247,7 @@ export default function ProductsTable() {
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
+        slots={{ toolbar: GridToolbar }}
       />
     </div>
   )
