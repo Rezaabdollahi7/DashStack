@@ -94,3 +94,7 @@ textarea {
 .rbc-toolbar button:first-child {
   border-radius: 40px 0 0 40px !important;
 }
+
+#products .css-1j1cers-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 0.75rem !important;
+}

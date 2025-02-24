@@ -1,6 +1,10 @@
 import { DataGrid } from '@mui/x-data-grid'
 import moment from 'moment'
 import img from '../../assets/images/LastProducts/img1.png'
+import { useState, useMemo } from 'react'
+import TextField from '@mui/material/TextField'
+import { debounce } from 'lodash'
+
 const columns = [
   {
     field: 'Product',
@@ -30,7 +34,7 @@ const columns = [
     headerName: 'Create at',
     width: 250,
     editable: true,
-    align: 'start',
+    align: 'left',
     type: 'date',
     renderCell: (params) => {
       return <span>{moment(params.row.created).format('lll')}</span>
@@ -42,7 +46,7 @@ const columns = [
     type: 'number',
     width: 150,
     editable: true,
-    align: 'start',
+    align: 'left',
     renderCell: (params) => {
       const percent = Math.floor((params.row.Stock / 100) * 100)
       return (
@@ -73,7 +77,7 @@ const columns = [
     description: 'This column has a value getter and is not sortable.',
     type: 'number',
     width: 150,
-    align: 'start',
+    align: 'left',
     renderCell: (params) => {
       return `$${params.row.Price}`
     },
@@ -84,7 +88,7 @@ const columns = [
     type: 'string',
     width: 150,
     editable: true,
-    align: 'start',
+    align: 'left',
     renderCell: (params) => {
       return (
         <div>
@@ -197,11 +201,38 @@ const rows = [
 ]
 
 export default function ProductsTable() {
+  const [searchBox, setSearchBox] = useState('')
+  const allProducts = rows
+
+  const products = useMemo(() => {
+    return allProducts.filter((product) =>
+      product.Product.toLowerCase().includes(searchBox.toLowerCase()),
+    )
+  }, [searchBox, allProducts])
+
+  const handleSearchChange = debounce((event) => {
+    setSearchBox(event.target.value)
+  }, 300)
+
   return (
-    <div className='my-5 w-full rounded-lg'>
+    <div
+      className='my-5 flex w-full flex-col gap-5 rounded-lg bg-white px-4 py-5'
+      id='products'
+    >
+      <TextField
+        id='product-name-searchBox'
+        label='Product Name'
+        placeholder='Search ...'
+        onChange={handleSearchChange}
+        sx={{
+          maxWidth: 300,
+          borderColor: 'gray',
+        }}
+      />
+
       <DataGrid
         sx={{ borderRadius: 3 }}
-        rows={rows}
+        rows={products}
         columns={columns}
         initialState={{
           pagination: {
