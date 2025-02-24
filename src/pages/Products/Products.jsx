@@ -5,6 +5,7 @@ import CurrentBalanceCart from './CurrentBalanceCart'
 import { productsStatsData } from '../../constants/ProductsStatsData'
 import StatsCard from './StatsCard'
 import LastProducts from './LastProducts'
+import ProductsTable from './ProductsTable'
 
 export default function ProductsLayout() {
   return (
@@ -38,6 +39,7 @@ export default function ProductsLayout() {
           <LastProducts />
         </div>
       </section>
+      <ProductsTable />
     </div>
   )
 }
