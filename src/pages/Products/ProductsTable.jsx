@@ -1,240 +1,16 @@
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
-import moment from 'moment'
-import img from '../../assets/images/LastProducts/img1.png'
-import { useState, useMemo } from 'react'
-import TextField from '@mui/material/TextField'
-import { debounce } from 'lodash'
-
-const columns = [
-  {
-    field: 'Product',
-    headerName: 'Product',
-    width: 400,
-    headerAlign: 'center',
-
-    renderCell: (params) => {
-      return (
-        <div className='flex w-full items-center justify-start gap-4'>
-          <img
-            src={params.row.img}
-            alt={` ${params.row.Product} - img`}
-            className='h-12 w-12'
-          />
-          <div className='product-details flex gap-2'>
-            <span className='font-medium hover:cursor-pointer hover:underline hover:underline-offset-2'>
-              {params.row.Product}{' '}
-            </span>
-            <span className='text-gray-400'> / {params.row.ProductDesc} </span>
-          </div>
-        </div>
-      )
-    },
-  },
-  {
-    field: 'created',
-    headerName: 'Create at',
-    width: 250,
-    headerAlign: 'center',
-    align: 'center',
-    type: 'date',
-    renderCell: (params) => {
-      return <span>{moment(params.row.created).format('lll')}</span>
-    },
-  },
-  {
-    field: 'Stock',
-    headerName: 'Stock',
-    type: 'number',
-    width: 150,
-    headerAlign: 'center',
-    align: 'left',
-    renderCell: (params) => {
-      const percent = Math.floor((params.row.Stock / 100) * 100)
-      return (
-        <div className='relative mt-[35%] flex flex-col'>
-          {params.row.Stock < 10 ? (
-            <div className='h-1 w-full rounded-2xl bg-red-300'>
-              <div
-                className='absolute h-1 w-[50%] rounded-2xl bg-red-500'
-                style={{ width: `${percent}%` }}
-              ></div>
-            </div>
-          ) : (
-            <div className='h-1 w-full rounded-2xl bg-green-200'>
-              <div
-                className='absolute h-1 w-[70%] rounded-2xl bg-green-500'
-                style={{ width: `${percent}%` }}
-              ></div>
-            </div>
-          )}
-          <p className='mt-1 text-sm'>{params.row.Stock} in stock</p>
-        </div>
-      )
-    },
-  },
-  {
-    field: 'Price',
-    headerName: 'Price',
-    description: 'This column has a value getter and is not sortable.',
-    type: 'number',
-    width: 150,
-    headerAlign: 'center',
-    align: 'center',
-    renderCell: (params) => {
-      return `$${params.row.Price}`
-    },
-  },
-  {
-    field: 'Publish',
-    headerName: 'Publish',
-    type: 'string',
-    width: 150,
-    headerAlign: 'center',
-    align: 'center',
-    renderCell: (params) => {
-      return (
-        <div>
-          {params.row.Publish === 'Published' ? (
-            <span className='rounded-lg bg-[#d6f4f9] px-4 py-1 text-sm font-semibold text-cyan-800'>
-              Published
-            </span>
-          ) : (
-            <span className='rounded-lg bg-gray-200 px-4 py-1 text-sm text-gray-700'>
-              Draft
-            </span>
-          )}
-        </div>
-      )
-    },
-  },
-]
-
-const rows = [
-  {
-    id: 1,
-    Product: 'Urban Explorer Sneakers',
-    ProductDesc: 'Accessories',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 14,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 2,
-    Product: 'Classic Leather Loafers',
-    ProductDesc: 'Shose',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 31,
-    Price: 20000,
-    Publish: 'Draft',
-  },
-  {
-    id: 3,
-    Product: 'Mountain Trekking Boots',
-    ProductDesc: 'Apparel',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 71,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 4,
-    Product: 'Comfy Running Shoes',
-    ProductDesc: 'Apparel',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 11,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 5,
-    Product: 'Chic Ballet Flats',
-    ProductDesc: 'Shose',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 4,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 6,
-    Product: 'Melisandre',
-    ProductDesc: 'Accessories',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 150,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 7,
-    Product: 'Clifford',
-    ProductDesc: 'Shose',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 44,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 8,
-    Product: 'Vintage Oxford Shoes',
-    ProductDesc: 'Apparel',
-    img: img,
-    created: new Date(1979, 0, 1),
-    Stock: 36,
-    Price: 20000,
-    Publish: 'Published',
-  },
-  {
-    id: 9,
-    Product: 'Roxie',
-    ProductDesc: 'Shose',
-    img: img,
-    created: new Date(1979, 5, 1),
-    Stock: 65,
-    Price: 20000,
-    Publish: 'Published',
-  },
-]
+import { columns } from '../../constants/ProductsListTable'
+import { rows } from '../../constants/ProductsListTable'
 
 export default function ProductsTable() {
-  const [searchBox, setSearchBox] = useState('')
-  const allProducts = rows
-
-  const products = useMemo(() => {
-    return allProducts.filter((product) =>
-      product.Product.toLowerCase().includes(searchBox.toLowerCase()),
-    )
-  }, [searchBox, allProducts])
-
-  const handleSearchChange = debounce((event) => {
-    setSearchBox(event.target.value)
-  }, 300)
-
   return (
     <div
       className='my-5 flex w-full flex-col gap-5 rounded-lg bg-white px-4 py-5'
       id='products'
     >
-      <TextField
-        id='product-name-searchBox'
-        label='Product Name'
-        placeholder='Search ...'
-        onChange={handleSearchChange}
-        sx={{
-          maxWidth: 300,
-          borderColor: 'gray',
-        }}
-      />
-
       <DataGrid
         sx={{ borderRadius: 3 }}
-        rows={products}
+        rows={rows}
         columns={columns}
         initialState={{
           pagination: {
@@ -248,6 +24,11 @@ export default function ProductsTable() {
         checkboxSelection
         disableRowSelectionOnClick
         slots={{ toolbar: GridToolbar }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+          },
+        }}
       />
     </div>
   )
