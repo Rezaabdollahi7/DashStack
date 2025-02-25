@@ -11,9 +11,9 @@ export default function ProductsLayout() {
   return (
     <div className='main-wrapper'>
       <HeroTitle name='Products' />
-      <section className='products grid gap-3 lg:grid-cols-12'>
-        <div className='col-span-9 grid grid-cols-10 grid-rows-3 gap-4'>
-          <div className='col-span-4 row-span-3 rounded-lg bg-white p-5'>
+      <section className='products grid grid-cols-1 gap-3 lg:grid-cols-12'>
+        <div className='col-span-1 grid gap-4 lg:col-span-9 lg:grid-cols-10 lg:grid-rows-3'>
+          <div className='rounded-lg bg-white p-5 md:col-span-2 lg:col-span-4 lg:row-span-3'>
             <h6>Sale By Gender</h6>
             <RadialBar
               series={[30, 50, 20]}
@@ -21,21 +21,21 @@ export default function ProductsLayout() {
               colors={['#00a76f', '#ffab00', '#ff5630']}
             />
           </div>
-          <div className='current-balance col-span-3 row-span-2 rounded-lg bg-white p-5'>
+          <div className='current-balance rounded-lg bg-white p-5 md:col-span-1 lg:col-span-3 lg:row-span-2'>
             <CurrentBalanceCart />
           </div>
 
-          <div className='col-span-3 row-span-2 rounded-lg bg-white p-5'>
+          <div className='rounded-lg bg-white p-5 md:col-span-1 lg:col-span-3 lg:row-span-2'>
             <Booked />
           </div>
 
-          <div className='col-span-6 row-span-1 flex justify-between gap-4 rounded-lg'>
+          <div className='flex flex-col justify-between gap-4 rounded-lg md:col-span-2 md:flex-row lg:col-span-6 lg:row-span-1'>
             {productsStatsData.map((stat) => (
               <StatsCard key={stat.id} {...stat} />
             ))}
           </div>
         </div>
-        <div className='col-span-3 rounded-lg bg-white p-5'>
+        <div className='col-span-1 rounded-lg bg-white p-5 lg:col-span-3'>
           <LastProducts />
         </div>
       </section>
