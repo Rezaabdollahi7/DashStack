@@ -4,6 +4,7 @@ import img2 from '../assets/images/LastProducts/img2.png'
 import img3 from '../assets/images/LastProducts/img3.png'
 import img4 from '../assets/images/LastProducts/img4.png'
 import img5 from '../assets/images/LastProducts/img5.png'
+import { Link } from 'react-router-dom'
 
 export const columns = [
   {
@@ -14,19 +15,24 @@ export const columns = [
 
     renderCell: (params) => {
       return (
-        <div className='flex w-full items-center justify-start gap-4'>
-          <img
-            src={params.row.img}
-            alt={` ${params.row.Product} - img`}
-            className='h-12 w-12'
-          />
-          <div className='product-details flex gap-2'>
-            <span className='font-medium hover:cursor-pointer hover:underline hover:underline-offset-2'>
-              {params.row.Product}{' '}
-            </span>
-            <span className='text-gray-400'> / {params.row.ProductDesc} </span>
+        <Link to={`/product/${params.row.id}`}>
+          <div className='flex w-full items-center justify-start gap-4'>
+            <img
+              src={params.row.img}
+              alt={` ${params.row.Product} - img`}
+              className='h-12 w-12'
+            />
+            <div className='product-details flex gap-2'>
+              <span className='font-medium hover:cursor-pointer hover:underline hover:underline-offset-2'>
+                {params.row.Product}{' '}
+              </span>
+              <span className='text-gray-400'>
+                {' '}
+                / {params.row.ProductDesc}{' '}
+              </span>
+            </div>
           </div>
-        </div>
+        </Link>
       )
     },
   },
