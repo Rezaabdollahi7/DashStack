@@ -4,7 +4,7 @@ import { sidebarLinks } from '../../constants/SidebarLinks'
 
 export default function Sidebar() {
   return (
-    <section className='sticky border-r border-r-gray-300 bg-white pt-6'>
+    <section className='fixed h-screen w-[17%] border-r border-r-gray-300 bg-white pt-6'>
       <div className='nav-wrapper flex flex-col gap-1'>
         <img
           src={Logo}
@@ -28,20 +28,6 @@ export default function Sidebar() {
               {Link.icon}
               {Link.LinkName}
             </NavLink>
-            {index === 4 && (
-              <>
-                <hr className='text-gray-200' />
-                <span className='mt-2 px-10 text-gray-400 uppercase'>
-                  Pages
-                </span>
-              </>
-            )}
-
-            {index === 8 && (
-              <>
-                <hr className='text-gray-200' />
-              </>
-            )}
           </div>
         ))}
       </div>

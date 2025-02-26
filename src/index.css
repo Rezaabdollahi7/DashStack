@@ -20,6 +20,9 @@
 
   --pattern-img: url('./assets/images/pricingPattern.png');
 }
+body {
+  background-color: var(--color-light-main-bg);
+}
 
 .css-5h82ro-MuiInputBase-root-MuiInput-root::before {
   border: none !important;

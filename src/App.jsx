@@ -7,7 +7,7 @@ import { StarredProvider } from './pages/Inbox/ContextApiInbox'
 
 export default function App() {
   return (
-    <main className='bg-light-main-bg overflow-x-hidden'>
+    <main className='overflow-x-hidden'>
       <StarredProvider>
         <Suspense fallback={<div>Loading...</div>}>
           <div className='grid grid-cols-12'>
