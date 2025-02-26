@@ -13,6 +13,10 @@
   --color-bg-green: #d9f7d7;
   --color-bg-orange: #ffded2;
   --color-bg-melo-blue: #ebf1fb;
+  --color-dark-green: #00a76f;
+  --color-main-green: #22c55e;
+  --color-main-yellow: #ffab00;
+  --color-main-red: #ff5630;
 
   --pattern-img: url('./assets/images/pricingPattern.png');
 }
@@ -89,4 +93,31 @@ textarea {
 }
 .rbc-toolbar button:first-child {
   border-radius: 40px 0 0 40px !important;
+}
+
+#products .css-1j1cers-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 0.75rem !important;
+}
+#products .css-128fb87-MuiDataGrid-toolbarContainer {
+  padding: 18px 15px !important;
+}
+#products .css-yseucu-MuiDataGrid-columnHeaderRow {
+  background-color: #f1f4f9 !important;
+}
+
+.css-128fb87-MuiDataGrid-toolbarContainer button {
+  font-weight: bold;
+  color: var(--color-light-black) !important;
+}
+.css-128fb87-MuiDataGrid-toolbarContainer button:nth-child(1) {
+  color: var(--color-dark-green) !important;
+}
+.css-128fb87-MuiDataGrid-toolbarContainer button:nth-child(2) {
+  color: var(--color-main-yellow) !important;
+}
+.css-128fb87-MuiDataGrid-toolbarContainer button:nth-child(3) {
+  color: var(--color-main-red) !important;
+}
+.css-128fb87-MuiDataGrid-toolbarContainer button:nth-child(4) {
+  color: var(--color-primary-light) !important;
 }

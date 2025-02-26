@@ -14,6 +14,7 @@ const Settings = lazy(() => import('./pages/Settings/Settings'))
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'))
 const UsersList = lazy(() => import('./pages/UsersList/UsersList'))
 const User = lazy(() => import('./pages/User/User'))
+const ProductDetails = lazy(() => import('./pages/Products/ProductDetails'))
 
 import InboxData from './pages/Inbox/InboxData'
 import Starred from './pages/Inbox/Starred'
@@ -52,6 +53,7 @@ let routes = [
   { path: '/settings', element: <Settings /> },
   { path: '/users', element: <UsersList /> },
   { path: '/user/:userID', element: <User /> },
+  { path: '/product/:productID', element: <ProductDetails /> },
   { path: '*', element: <NotFound /> },
 ]
 
