@@ -21,6 +21,7 @@ import Sent from './pages/Inbox/Sent'
 import Spam from './pages/Inbox/Spam'
 import Bin from './pages/Inbox/Bin'
 import Draft from './pages/Inbox/Draft'
+import { Navigate } from 'react-router-dom'
 
 let routes = [
   { path: '/', element: <Dashboard /> },
@@ -28,13 +29,9 @@ let routes = [
   { path: '/favorites', element: <Favorites /> },
   {
     path: '/inbox',
-    element: (
-      <Inbox>
-        <InboxData />
-      </Inbox>
-    ),
+    element: <Inbox />,
     children: [
-      { index: true, element: <InboxData /> },
+      { path: '', element: <Navigate to='inboxs' /> },
       { path: 'inboxs', element: <InboxData /> },
       { path: 'starred', element: <Starred /> },
       { path: 'sent', element: <Sent /> },

@@ -1,18 +1,17 @@
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  Avatar,
-  Button,
-} from '@mui/material'
-
-import { Link } from 'react-router-dom'
+import { Box, List, ListItem, Typography, Avatar } from '@mui/material'
+import { Link, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { items } from '../../constants/ItemsSidebarInbox'
+import CreateLable from './CreateLable'
+import { initialEmails } from '../../constants/ItemInbox'
 
 function Sidebar() {
+  const location = useLocation()
+
+  const getBadgeCount = (category) => {
+    return initialEmails.filter((email) => email.category === category).length
+  }
+
   return (
     <Box
       sx={{
@@ -29,106 +28,69 @@ function Sidebar() {
       <Typography variant='h6'>My Email</Typography>
 
       <List>
-        {items.map((item, index) => (
-          <ListItem
-            key={index}
-            button
-            sx={{
-              bgcolor: 'transparent',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                bgcolor: '#e6eeff',
-              },
-              borderRadius: 3,
-            }}
-          >
-            <Link
-              to={item.link}
-              style={{ display: 'flex', alignItems: 'center', width: '100%' }}
+        {items.map((item, index) => {
+          const isActive = location.pathname === item.link
+          const badgeCount = getBadgeCount(item.text)
+
+          return (
+            <ListItem
+              key={index}
+              button
+              sx={{
+                bgcolor: isActive ? '#e6eeff' : 'transparent',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  bgcolor: isActive ? '#c1d7f7' : '#e6eeff',
+                },
+                borderRadius: 3,
+              }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  width: '100%',
-                  justifyContent: 'space-between',
-                }}
+              <Link
+                to={item.link}
+                style={{ display: 'flex', alignItems: 'center', width: '100%' }}
               >
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  {item.icon}
-                  <span
-                    style={{
-                      marginLeft: '10px',
-                      fontSize: '18px',
-                      color: '#000000',
-                      fontWeight: '500',
-                      transition: 'font-weight 0.3s ease',
-                    }}
-                    className='hover-text'
-                  >
-                    {item.text}
-                  </span>
-                </div>
-                <Avatar
-                  sx={{
-                    bgcolor: 'white',
-                    width: 30,
-                    height: 30,
-                    fontSize: '14px',
-                    fontWeight: 'bold',
-                    color: 'black',
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    width: '100%',
+                    justifyContent: 'space-between',
                   }}
                 >
-                  {item.badge}
-                </Avatar>
-              </div>
-            </Link>
-          </ListItem>
-        ))}
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    {item.icon}
+                    <span
+                      style={{
+                        marginLeft: '10px',
+                        fontSize: '18px',
+                        color: '#000000',
+                        fontWeight: '500',
+                        transition: 'font-weight 0.3s ease',
+                      }}
+                      className='hover-text'
+                    >
+                      {item.text}
+                    </span>
+                  </div>
+                  <Avatar
+                    sx={{
+                      bgcolor: 'white',
+                      width: 30,
+                      height: 30,
+                      fontSize: '14px',
+                      fontWeight: 'bold',
+                      color: 'black',
+                    }}
+                  >
+                    {badgeCount}
+                  </Avatar>
+                </div>
+              </Link>
+            </ListItem>
+          )
+        })}
       </List>
-
-      <Typography variant='h6'>Label</Typography>
-
-      <List>
-        {[
-          { text: 'Primary' },
-          { text: 'Social' },
-          { text: 'Work' },
-          { text: 'Friends' },
-        ].map((item, index) => (
-          <ListItem
-            key={index}
-            button
-            sx={{
-              bgcolor: 'transparent',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                bgcolor: '#e6eeff',
-              },
-              borderRadius: 3,
-            }}
-          >
-            <input
-              type='checkbox'
-              name={item.text}
-              id={item.text}
-              style={{
-                width: 18,
-                height: 18,
-                borderRadius: '15px',
-                cursor: 'pointer',
-                color: 'black',
-              }}
-            />
-            <ListItemText
-              primary={item.text}
-              sx={{ ml: '8px', fontWeight: 'bold' }}
-            />
-          </ListItem>
-        ))}
-      </List>
-
-      <Button sx={{ mt: 1, color: 'primary' }}>+ Create New Label</Button>
+      <CreateLable />
     </Box>
   )
 }
