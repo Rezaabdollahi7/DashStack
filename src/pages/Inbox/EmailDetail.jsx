@@ -23,7 +23,7 @@ function EmailDetail() {
   const [newMessage, setNewMessage] = useState('')
   const [messages, setMessages] = useState(fakeEmails)
   if (!email) {
-    return <div className='p-4 text-red-500'> Email not found!</div>
+    return <div className='p-4 text-red-500'>Email not found!</div>
   }
 
   const handleGoBack = () => {
