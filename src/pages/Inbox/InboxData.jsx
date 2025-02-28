@@ -14,11 +14,12 @@ import { initialEmails } from '../../constants/ItemInbox'
 
 function InboxData() {
   const [emails, setEmails] = useState(initialEmails)
-  const [searchTerm, setSearchTerm] = useState('')
   const [selected, setSelected] = useState(
     new Array(initialEmails.length).fill(false),
   )
-  const { starredEmails, toggleStars, deleteStarredEmail } = useStarred()
+  const { starredEmails, toggleStars, deleteStarredEmail, selectedCategory } =
+    useStarred()
+
   const handleDelete = (index) => {
     const emailToDelete = emails[index]
     setEmails((prevEmails) => {
@@ -28,26 +29,32 @@ function InboxData() {
     })
     deleteStarredEmail(emailToDelete)
   }
+
   const toggleSelect = (index) => {
     const newSelected = [...selected]
     newSelected[index] = !newSelected[index]
     setSelected(newSelected)
   }
-  const filteredEmails = emails.filter((email) =>
-    email.name.toLowerCase().includes(searchTerm),
-  )
+
+  const filteredEmails = emails.filter((email) => {
+    if (selectedCategory === 'all') {
+      return true
+    }
+    return email.category === selectedCategory
+  })
+
   return (
     <TableBody>
       {filteredEmails.map((email, index) => (
         <TableRow key={index}>
-          <TableCell padding='checkbox'>
+          <TableCell padding='checkbox' sx={{ width: '5%' }}>
             <input
               type='checkbox'
               checked={selected[index]}
               onChange={() => toggleSelect(index)}
             />
           </TableCell>
-          <TableCell padding='checkbox'>
+          <TableCell padding='checkbox' sx={{ width: '10%' }}>
             <IconButton onClick={() => toggleStars(email)}>
               {starredEmails.includes(email) ? (
                 <Star color='warning' />
@@ -56,12 +63,12 @@ function InboxData() {
               )}
             </IconButton>
           </TableCell>
-          <TableCell>
+          <TableCell sx={{ width: '12%' }}>
             <Typography fontWeight='bold' fontSize={14}>
               {email.name}
             </Typography>
           </TableCell>
-          <TableCell>
+          <TableCell sx={{ width: '15%' }}>
             <Chip
               label={email.category || 'General'}
               size='small'
@@ -81,15 +88,15 @@ function InboxData() {
               }}
             />
           </TableCell>
-          <TableCell>
+          <TableCell sx={{ width: '35%' }}>
             <Typography fontSize={14}>{email.subject}</Typography>
           </TableCell>
-          <TableCell>
+          <TableCell sx={{ width: '15%' }}>
             <Typography fontSize={12} color='text.secondary'>
               {email.time}
             </Typography>
           </TableCell>
-          <TableCell padding='checkbox'>
+          <TableCell padding='checkbox' sx={{ width: '5%' }}>
             <IconButton
               sx={{ color: 'gray' }}
               onClick={() => handleDelete(index)}
