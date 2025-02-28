@@ -11,6 +11,7 @@ import SendIcon from '@mui/icons-material/Send'
 import { useStarred } from './ContextApiInbox'
 import { initialEmails } from '../../constants/ItemInbox'
 import { useState } from 'react'
+import { fakeEmails } from '../../components/charts/fakeEmails'
 
 function EmailDetail() {
   const { emailName } = useParams()
@@ -18,36 +19,11 @@ function EmailDetail() {
   const { starredEmails, toggleStars } = useStarred()
 
   const email = initialEmails.find((e) => e.name === emailName)
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: emailName,
-      message:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-      time: '6:30 pm',
-      isSender: false,
-    },
-    {
-      id: 2,
-      sender: 'You',
-      message:
-        'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-      time: '6:34 pm',
-      isSender: true,
-    },
-    {
-      id: 3,
-      sender: emailName,
-      message:
-        "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.",
-      time: '6:38 pm',
-      isSender: false,
-    },
-  ])
-  const [newMessage, setNewMessage] = useState('')
 
+  const [newMessage, setNewMessage] = useState('')
+  const [messages, setMessages] = useState(fakeEmails)
   if (!email) {
-    return <div className='p-4 text-red-500'>ایمیل یافت نشد!</div>
+    return <div className='p-4 text-red-500'> Email not found!</div>
   }
 
   const handleGoBack = () => {
@@ -74,7 +50,6 @@ function EmailDetail() {
 
   return (
     <div className='flex h-160 flex-col justify-between pb-[70px]'>
-      {/* Header */}
       <div className='flex w-full items-center justify-between border-b-2 border-gray-300 p-2'>
         <div className='flex text-start'>
           <IconButton onClick={handleGoBack} className='mr-4'>
@@ -96,7 +71,6 @@ function EmailDetail() {
         </div>
       </div>
 
-      {/* Messages */}
       <div className='flex min-h-0 flex-col gap-2 overflow-y-auto'>
         {messages.map((msg) => (
           <div
@@ -107,11 +81,7 @@ function EmailDetail() {
               <div className='h-8 w-8 rounded-full bg-gray-300'></div>
             )}
             <div
-              className={`max-w-md rounded-lg p-3 shadow-md ${
-                msg.isSender
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-100 text-gray-800'
-              }`}
+              className={`max-w-md rounded-lg p-3 shadow-md ${msg.isSender ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800'}`}
             >
               <p>{msg.message}</p>
               <span className='text-xs text-gray-500'>{msg.time}</span>
@@ -135,7 +105,7 @@ function EmailDetail() {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder='Write message...'
-          className='flex-1 rounded-lg border p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none'
+          className='flex-1 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none'
         />
         <div className='flex items-center gap-2'>
           <IconButton>
