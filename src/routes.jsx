@@ -22,6 +22,7 @@ import Sent from './pages/Inbox/Sent'
 import Spam from './pages/Inbox/Spam'
 import Bin from './pages/Inbox/Bin'
 import Draft from './pages/Inbox/Draft'
+import EmailDetail from './pages/Inbox/EmailDetail'
 
 let routes = [
   { path: '/', element: <Dashboard /> },
@@ -37,6 +38,7 @@ let routes = [
     children: [
       { index: true, element: <InboxData /> },
       { path: 'inboxs', element: <InboxData /> },
+      { path: '/inbox/inboxs/:emailName', element: <EmailDetail /> },
       { path: 'starred', element: <Starred /> },
       { path: 'sent', element: <Sent /> },
       { path: 'spam', element: <Spam /> },

@@ -4,7 +4,7 @@ import { IconButton, TableCell, Chip, Typography } from '@mui/material'
 import { Delete, StarBorder, Star } from '@mui/icons-material'
 import { useStarred } from './ContextApiInbox'
 import { initialEmails } from '../../constants/ItemInbox'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, Link } from 'react-router-dom'
 
 function InboxData() {
   const { searchTerm } = useOutletContext()
@@ -30,6 +30,7 @@ function InboxData() {
   const filteredEmails = emails.filter((email) =>
     email.name.toLowerCase().includes(searchTerm),
   )
+
   return (
     <div className='w-full'>
       {filteredEmails.map((email, index) => (
@@ -51,9 +52,11 @@ function InboxData() {
             </IconButton>
           </TableCell>
           <TableCell style={{ width: '150px' }}>
-            <Typography fontWeight='bold' fontSize={14}>
-              {email.name}
-            </Typography>
+            <Link to={`/inbox/inboxs/${email.name}`}>
+              <Typography fontWeight='bold' fontSize={14}>
+                {email.name}
+              </Typography>
+            </Link>
           </TableCell>
           <TableCell style={{ width: '150px' }}>
             <Chip
