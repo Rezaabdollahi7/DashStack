@@ -2,9 +2,7 @@ import HeroTitle from '../../components/common/HeroTitle'
 import Sidebar from './Sidebar'
 import { Outlet } from 'react-router-dom'
 
-import { Box, Grid, IconButton, TextField } from '@mui/material'
-import { Search } from '@mui/icons-material'
-
+import { Box, TextField } from '@mui/material'
 import { useState } from 'react'
 
 export default function Inbox() {
@@ -12,18 +10,20 @@ export default function Inbox() {
   return (
     <div>
       <HeroTitle name='Inbox' />
-      <Grid container>
-        <Sidebar />
+      <div className='mx-auto flex w-full min-w-0 flex-col gap-2 md:flex-row'>
+        <Sidebar className='w-full md:w-[300px]' />
 
         <Box
           sx={{
-            width: 980,
-            height: 660,
+            width: '100%',
+            maxWidth: '980px',
+            height: '660px',
             p: 3,
             ml: 'auto',
             boxShadow: 2,
             bgcolor: 'background.paper',
           }}
+          className='flex-grow'
         >
           <Box display='flex' alignItems='center' mb={2}>
             <TextField
@@ -34,17 +34,14 @@ export default function Inbox() {
               sx={{ maxWidth: 400 }}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              className='sm:max-w-[300px] md:max-w-[400px]'
             />
-            <Box display='flex' ml='auto'>
-              <IconButton>
-                <Search />
-              </IconButton>
-            </Box>
+            <Box display='flex' ml='auto'></Box>
           </Box>
 
           <Outlet context={{ searchTerm }} />
         </Box>
-      </Grid>
+      </div>
     </div>
   )
 }
