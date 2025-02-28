@@ -1,20 +1,14 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import {
-  IconButton,
-  TableBody,
-  TableRow,
-  TableCell,
-  Chip,
-  Typography,
-} from '@mui/material'
+import { IconButton, TableCell, Chip, Typography } from '@mui/material'
 import { Delete, StarBorder, Star } from '@mui/icons-material'
 import { useStarred } from './ContextApiInbox'
 import { initialEmails } from '../../constants/ItemInbox'
+import { useOutletContext } from 'react-router-dom'
 
 function InboxData() {
+  const { searchTerm } = useOutletContext()
   const [emails, setEmails] = useState(initialEmails)
-  const [searchTerm, setSearchTerm] = useState('')
   const [selected, setSelected] = useState(
     new Array(initialEmails.length).fill(false),
   )
@@ -37,9 +31,9 @@ function InboxData() {
     email.name.toLowerCase().includes(searchTerm),
   )
   return (
-    <TableBody>
+    <div className='w-full'>
       {filteredEmails.map((email, index) => (
-        <TableRow key={index}>
+        <div key={index} className='w-300'>
           <TableCell padding='checkbox'>
             <input
               type='checkbox'
@@ -56,12 +50,12 @@ function InboxData() {
               )}
             </IconButton>
           </TableCell>
-          <TableCell>
+          <TableCell style={{ width: '150px' }}>
             <Typography fontWeight='bold' fontSize={14}>
               {email.name}
             </Typography>
           </TableCell>
-          <TableCell>
+          <TableCell style={{ width: '150px' }}>
             <Chip
               label={email.category || 'General'}
               size='small'
@@ -81,15 +75,15 @@ function InboxData() {
               }}
             />
           </TableCell>
-          <TableCell>
+          <TableCell style={{ width: '400px' }}>
             <Typography fontSize={14}>{email.subject}</Typography>
           </TableCell>
-          <TableCell>
+          <TableCell sx={{ width: '60px' }}>
             <Typography fontSize={12} color='text.secondary'>
               {email.time}
             </Typography>
           </TableCell>
-          <TableCell padding='checkbox'>
+          <TableCell padding='checkbox' style={{ width: '60px' }}>
             <IconButton
               sx={{ color: 'gray' }}
               onClick={() => handleDelete(index)}
@@ -97,9 +91,9 @@ function InboxData() {
               <Delete />
             </IconButton>
           </TableCell>
-        </TableRow>
+        </div>
       ))}
-    </TableBody>
+    </div>
   )
 }
 

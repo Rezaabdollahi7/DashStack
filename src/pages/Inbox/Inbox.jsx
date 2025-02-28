@@ -42,7 +42,7 @@ export default function Inbox() {
             </Box>
           </Box>
 
-          <Outlet searchTerm={searchTerm} />
+          <Outlet context={{ searchTerm }} />
         </Box>
       </Grid>
     </div>
