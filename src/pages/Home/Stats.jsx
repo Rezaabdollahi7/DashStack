@@ -1,10 +1,10 @@
 import { dashboardStats } from '../../constants/DashboardStats'
 export default function Stats() {
   return (
-    <div className='stats-wrapper mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+    <div className='stats-wrapper grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
       {dashboardStats.map((stat) => (
         <div
-          className='stat col-span-1 flex max-w-72 flex-col rounded-2xl bg-white p-4 shadow'
+          className='stat col-span-1 flex flex-col rounded-2xl bg-white p-4 shadow'
           key={stat.id}
         >
           <div className='top-section flex items-center justify-between'>
