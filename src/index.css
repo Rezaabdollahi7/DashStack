@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
-
+@import './embla.css';
 @theme {
+  --font-inter: 'Inter', sans-serif;
+
   --color-light-main-bg: #f7f7fa;
   --color-light-black: #202224;
   --color-primary-light: #4880ff;
@@ -18,10 +21,33 @@
   --color-main-yellow: #ffab00;
   --color-main-red: #ff5630;
 
+  --palette-grey-900: #141a21;
+  --palette-grey-900Channel: rgb(20, 26, 33);
+
   --pattern-img: url('./assets/images/pricingPattern.png');
+  --banner-bg: url('./assets/images/banner-bg.webp');
+
+  --detail-high-contrast: rgb(192, 192, 192);
+  --detail-medium-contrast: rgb(234, 234, 234);
+  --text-high-contrast-rgb-value: 49, 49, 49;
+  --detail-high-contrast-rgb-value: 192, 192, 192;
 }
 body {
   background-color: var(--color-light-main-bg);
+  font-family: 'Inter', sans-serif;
+}
+
+.banner-bg {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 1)
+    ),
+    url('./assets/images/banner-bg.webp');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .css-5h82ro-MuiInputBase-root-MuiInput-root::before {

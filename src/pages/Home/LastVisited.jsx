@@ -2,7 +2,7 @@ import AvTimerIcon from '@mui/icons-material/AvTimer'
 import { lastVisitedUsers } from '../../constants/LastVisited'
 export default function LastVisited() {
   return (
-    <section className='mt-12 w-full rounded-2xl bg-white p-4 shadow'>
+    <section className='w-full rounded-2xl bg-white p-4 shadow'>
       <div className='title-wrapper flex items-center justify-between'>
         <h6 className='text-primary-light text-2xl font-bold'>Last Visited</h6>
         <AvTimerIcon className='mr-3 text-gray-500' />
