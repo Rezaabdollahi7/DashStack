@@ -5,6 +5,7 @@ import HeroTitle from '../../components/common/HeroTitle'
 import Banner from './Banner'
 import EmblaCarousel from './Carousel'
 import slides from '../../constants/DashboardCarouselSlides'
+import BestSalesman from './BestSalesman'
 export default function Home() {
   return (
     <section className='flex flex-col gap-y-10'>
@@ -23,9 +24,12 @@ export default function Home() {
       </section>
       <Stats />
       <MyApexChart />
-      <div className='grid grid-cols-12'>
+      <div className='grid grid-cols-12 gap-6'>
         <div className='col-span-12 lg:col-span-4'>
           <LastVisited />
+        </div>
+        <div className='col-span-12 lg:col-span-8'>
+          <BestSalesman />
         </div>
       </div>
     </section>

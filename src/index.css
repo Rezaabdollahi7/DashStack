@@ -130,7 +130,8 @@ textarea {
 #products .css-128fb87-MuiDataGrid-toolbarContainer {
   padding: 18px 15px !important;
 }
-#products .css-yseucu-MuiDataGrid-columnHeaderRow {
+#products .css-yseucu-MuiDataGrid-columnHeaderRow,
+#bestSellers .css-yseucu-MuiDataGrid-columnHeaderRow {
   background-color: #f1f4f9 !important;
 }
 
