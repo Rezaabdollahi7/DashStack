@@ -2,11 +2,10 @@ import SearchIcon from '@mui/icons-material/Search'
 import Paper from '@mui/material/Paper'
 import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
-import Badge from '@mui/material/Badge'
-import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
-import Avatar from '@mui/material/Avatar'
-import AvatarImage from '../../assets/images/avatar.png'
+import AvatarImage from '../../assets/icons/Avatars/avatar-2.webp'
 import { useState, useMemo, useCallback } from 'react'
+import { PiUsersThreeDuotone } from 'react-icons/pi'
+import { AiTwotoneSetting } from 'react-icons/ai'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
@@ -77,13 +76,8 @@ export default function Navbar() {
       </Paper>
 
       <div className='right-section flex items-center justify-center gap-x-4'>
-        <Badge color='secondary' variant='dot' overlap='circular'>
-          <CircleNotificationsIcon
-            className='text-primary-light hover:text-primary-light/80'
-            fontSize='large'
-          />
-        </Badge>
-
+        <AiTwotoneSetting className='animate-wiggle h-6 w-6 text-gray-600' />
+        <PiUsersThreeDuotone className='h-7 w-7 text-gray-600' />
         <div className='hidden md:block'>
           <Button
             aria-controls='language-menu'
@@ -120,10 +114,14 @@ export default function Navbar() {
         </div>
 
         <div className='avatar-wrapper flex items-center gap-1'>
-          <Avatar alt='Remy Sharp' src={AvatarImage} />
-          <div className='admin-details hidden flex-col items-center justify-center md:flex'>
-            <span className='text-sm font-light'>Moni Rou</span>
-            <span className='text-sm font-light text-gray-400'>Admin</span>
+          <div className='wrapper relative w-max'>
+            <img
+              src={AvatarImage}
+              alt=''
+              className='absolute top-[5%] right-[5%] z-10 flex h-[47px] w-[47px] items-center justify-center rounded-full border-2 border-white bg-white'
+            />
+
+            <div className='circle-gradient'></div>
           </div>
         </div>
       </div>
