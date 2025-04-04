@@ -46,4 +46,12 @@ export const lastVisitedUsers = [
     visitTime: '12:00',
     img: user5Logo,
   },
+  {
+    id: 6,
+    name: 'Pandhang Sadio',
+    job: 'Designer',
+    online: false,
+    visitTime: '11:16',
+    img: user2Logo,
+  },
 ]

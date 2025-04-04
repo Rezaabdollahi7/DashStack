@@ -12,7 +12,7 @@ export default function DashboardLayout() {
 
       <div className='route-wrapper col-span-12 lg:col-span-10'>
         <Navbar />
-        <div className='px-6'>
+        <div className='px-6 pb-8'>
           <Routes>
             {routes.map((route, index) => {
               return route.children ? (

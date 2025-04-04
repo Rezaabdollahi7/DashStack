@@ -1,11 +1,9 @@
-import AvTimerIcon from '@mui/icons-material/AvTimer'
 import { lastVisitedUsers } from '../../constants/LastVisited'
 export default function LastVisited() {
   return (
-    <section className='w-full rounded-2xl bg-white p-4 shadow'>
+    <section className='h-full w-full rounded-2xl bg-white p-4'>
       <div className='title-wrapper flex items-center justify-between'>
-        <h6 className='text-primary-light text-2xl font-bold'>Last Visited</h6>
-        <AvTimerIcon className='mr-3 text-gray-500' />
+        <h6 className='text-light-black text-xl font-semibold'>Last Visited</h6>
       </div>
       <div className='users-wrapper mt-3 flex flex-col'>
         {lastVisitedUsers.map((user) => (
@@ -38,7 +36,7 @@ export default function LastVisited() {
           </div>
         ))}
       </div>
-      <button className='bg-bg-purple text-icon-purple hover:bg-primary-light mt-4 w-full cursor-pointer rounded-full py-2 hover:text-white'>
+      <button className='bg-bg-melo-blue text-light-black mx-auto mt-7 flex cursor-pointer items-center rounded-full border border-gray-200 px-8 py-2'>
         See All
       </button>
     </section>

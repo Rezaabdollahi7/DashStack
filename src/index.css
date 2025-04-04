@@ -31,7 +31,15 @@
   --detail-medium-contrast: rgb(234, 234, 234);
   --text-high-contrast-rgb-value: 49, 49, 49;
   --detail-high-contrast-rgb-value: 192, 192, 192;
+
+  --animate-wiggle: wiggle 10s linear infinite;
+  @keyframes wiggle {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
+
 body {
   background-color: var(--color-light-main-bg);
   font-family: 'Inter', sans-serif;
@@ -130,7 +138,8 @@ textarea {
 #products .css-128fb87-MuiDataGrid-toolbarContainer {
   padding: 18px 15px !important;
 }
-#products .css-yseucu-MuiDataGrid-columnHeaderRow {
+#products .css-yseucu-MuiDataGrid-columnHeaderRow,
+#bestSellers .css-yseucu-MuiDataGrid-columnHeaderRow {
   background-color: #f1f4f9 !important;
 }
 
@@ -149,4 +158,31 @@ textarea {
 }
 .css-128fb87-MuiDataGrid-toolbarContainer button:nth-child(4) {
   color: var(--color-primary-light) !important;
+}
+
+.circle-gradient {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    #ff7f5fe8,
+    #feb47bb2,
+    #00c9a7f8,
+    #92fe9dad
+  );
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: rotate-gradient 10s linear infinite;
+}
+
+@keyframes rotate-gradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.css-5106hn-MuiBadge-badge {
+  top: 7px !important;
+  right: 4px !important;
 }
