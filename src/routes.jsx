@@ -2,7 +2,7 @@ import { lazy } from 'react'
 
 const Dashboard = lazy(() => import('./pages/Home/Home'))
 const Products = lazy(() => import('./pages/Products/Products'))
-const Favorites = lazy(() => import('./pages/Favorites/Favorites'))
+const Blog = lazy(() => import('./pages/Blog/Blog'))
 const Inbox = lazy(() => import('./pages/Inbox/Inbox'))
 const OrderLists = lazy(() => import('./pages/OrderLists/OrderLists'))
 const ProductStock = lazy(() => import('./pages/ProductStock/ProductStock'))
@@ -15,6 +15,7 @@ const NotFound = lazy(() => import('./pages/NotFound/NotFound'))
 const UsersList = lazy(() => import('./pages/UsersList/UsersList'))
 const User = lazy(() => import('./pages/User/User'))
 const ProductDetails = lazy(() => import('./pages/Products/ProductDetails'))
+const Job = lazy(() => import('./pages/Job/Job'))
 
 import InboxData from './pages/Inbox/InboxData'
 import Starred from './pages/Inbox/Starred'
@@ -27,7 +28,7 @@ import { Navigate } from 'react-router-dom'
 let routes = [
   { path: '/', element: <Dashboard /> },
   { path: '/products', element: <Products /> },
-  { path: '/favorites', element: <Favorites /> },
+  { path: '/Blog', element: <Blog /> },
   {
     path: '/inbox',
     element: <Inbox />,
@@ -42,6 +43,7 @@ let routes = [
     ],
   },
   { path: '/order-lists', element: <OrderLists /> },
+  { path: '/job', element: <Job /> },
   { path: '/product-stock', element: <ProductStock /> },
   { path: '/pricing', element: <Pricing /> },
   { path: '/calendar', element: <CalendarLayout /> },

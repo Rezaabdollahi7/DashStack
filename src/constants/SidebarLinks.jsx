@@ -1,6 +1,6 @@
 import SpeedIcon from '@mui/icons-material/Speed'
 import { AiOutlineProduct } from 'react-icons/ai'
-import { TiHeart } from 'react-icons/ti'
+import { FaBlog } from 'react-icons/fa'
 import { FaInbox } from 'react-icons/fa'
 import { TiThList } from 'react-icons/ti'
 import { RiAlignItemBottomLine } from 'react-icons/ri'
@@ -10,6 +10,7 @@ import { RiTodoLine } from 'react-icons/ri'
 import { IoMdContacts } from 'react-icons/io'
 import { GrSettingsOption } from 'react-icons/gr'
 import { PiUsersThreeFill } from 'react-icons/pi'
+import { RiFolderUserFill } from 'react-icons/ri'
 
 export const sidebarLinks = [
   {
@@ -28,14 +29,19 @@ export const sidebarLinks = [
     icon: <AiOutlineProduct className='h-6 w-5' />,
   },
   {
-    LinkName: 'favorites',
-    Link: '/favorites',
-    icon: <TiHeart className='h-6 w-5' />,
+    LinkName: 'Blog',
+    Link: '/blog',
+    icon: <FaBlog className='h-6 w-5' />,
   },
   {
     LinkName: 'order-lists',
     Link: '/order-lists',
     icon: <TiThList className='h-6 w-5' />,
+  },
+  {
+    LinkName: 'Job',
+    Link: '/job',
+    icon: <RiFolderUserFill className='h-6 w-5' />,
   },
   {
     LinkName: 'product-stock',
