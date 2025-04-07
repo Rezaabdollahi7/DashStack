@@ -3,24 +3,24 @@ import PropTypes from 'prop-types'
 export default function PricingCart({ plan }) {
   return (
     <div
-      className='plan text-light-black flex flex-col items-center gap-y-5 rounded-3xl border border-gray-200 bg-white bg-[image:var(--pattern-img)] px-8 py-10 shadow-md'
+      className='plan text-light-black flex flex-col items-center gap-y-3 rounded-3xl border border-gray-200 bg-white bg-[image:var(--pattern-img)] px-6 py-8 shadow-md'
       key={plan.id}
     >
       <h6 className='text-2xl font-bold'>{plan.planName}</h6>
       <p className='text-lg text-gray-400'>{plan.planCharge}</p>
-      <p className='text-primary-light text-5xl font-extrabold'>
+      <p className='text-primary-light text-4xl font-extrabold'>
         ${plan.planPrice}
       </p>
 
-      <ul className='my-4 w-full space-y-4 border-y border-y-gray-200 py-8 text-center'>
+      <ul className='my-4 w-full space-y-4 border-y border-y-gray-200 py-6 text-center'>
         {plan.activeFacilities.map((activeLink) => (
-          <li className='font-base text-lg' key={plan.id}>
+          <li className='font-base ' key={plan.id}>
             {activeLink}
           </li>
         ))}
 
         {plan.deActiveFacilities.map((activeLink) => (
-          <li className='font-base text-lg text-gray-400' key={plan.id}>
+          <li className='font-base  text-gray-400' key={plan.id}>
             {activeLink}
           </li>
         ))}
