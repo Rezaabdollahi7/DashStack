@@ -38,7 +38,7 @@ export default function ProductSlider({
 
   return (
     <>
-      <div className='embla relative max-h-[580px] max-w-[580px]'>
+      <div className='embla relative m-0 max-h-[580px] max-w-[580px] xl:w-full'>
         <div
           className='embla__viewport overflow-hidden rounded-2xl'
           ref={emblaRef}
