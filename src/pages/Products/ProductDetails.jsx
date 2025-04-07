@@ -3,6 +3,8 @@ import { products_data } from '../../constants/Products'
 import { useParams } from 'react-router-dom'
 import ProductSlider from './ProductDetails/ProductSlider'
 import ProductsInformation from './ProductDetails/ProductsInformation'
+import ProductFeatures from './ProductDetails/ProductFeatures'
+import ProductTabs from './ProductDetails/ProductTabs'
 export default function ProductDetails() {
   const [products] = useState(products_data)
   let selectedProduct = useParams()
@@ -16,7 +18,7 @@ export default function ProductDetails() {
   const [imgNumber, setImgNumber] = useState(1)
 
   return (
-    <section className='grid grid-cols-12 py-7 lg:px-16'>
+    <section className='mx-auto grid grid-cols-12 px-2 py-7 sm:px-6 md:px-0 lg:gap-8 lg:px-12 xl:max-w-6xl'>
       {/* left section */}
       <div className='left-section col-span-12 flex flex-col gap-4 lg:col-span-6'>
         <ProductSlider
@@ -27,11 +29,15 @@ export default function ProductDetails() {
         />
       </div>
       {/* Right section */}
-      <div className='right-section col-span-12 mt-12 flex max-w-lg flex-col items-start gap-8 md:mt-0 md:gap-5 lg:col-span-6'>
+      <div className='right-section col-span-12 mt-12 flex flex-col items-start gap-8 md:mt-0 md:gap-5 lg:col-span-6'>
         <ProductsInformation
           selectedProductsDetails={selectedProductsDetails}
         />
       </div>
+      {/* features */}
+      <ProductFeatures />
+      {/* Tabs */}
+      <ProductTabs />
     </section>
   )
 }
