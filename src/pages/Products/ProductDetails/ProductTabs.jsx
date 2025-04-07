@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Rating } from '@mui/material'
 import { FaPen } from 'react-icons/fa'
+import ProductCommentCard from './ProductCommentCard'
+import { ProductComments } from '../../../constants/ProductComments'
+import { FaStar, FaRegStar } from 'react-icons/fa6'
 
 export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState(0)
@@ -93,16 +96,18 @@ export default function ProductTabs() {
       label: 'Reviews(13)',
       content: (
         <div className='main-container flex flex-col'>
-          <div className='rating-section col-span-1 grid gap-8 lg:grid-cols-4 lg:gap-0 lg:py-5 xl:grid-cols-3'>
+          <div className='rating-section col-span-1 mb-8 grid gap-8 border-dashed border-b-gray-200 md:border-b lg:grid-cols-4 lg:gap-0 lg:py-5 xl:grid-cols-3'>
             {/* average rating */}
             <div className='col-span-1 flex flex-col items-center justify-center gap-4 border-b border-dashed border-gray-300 pb-5 lg:border-r lg:border-b-0'>
               <h6>Average rating</h6>
-              <strong className='text-4xl font-extrabold'>3.7/5</strong>
+              <strong className='text-4xl font-extrabold'>4.2/5</strong>
               <Rating
                 name='half-rating-read'
-                defaultValue={2.5}
-                precision={0.5}
+                defaultValue={4}
+                precision={1}
                 readOnly
+                icon={<FaStar className='size-4 md:size-5' />}
+                emptyIcon={<FaRegStar className='size-4 md:size-5' />}
               />
               <span className='text-xs text-gray-400'>(9.12k reviews)</span>
             </div>
@@ -158,6 +163,11 @@ export default function ProductTabs() {
                 <span>Write Your Review</span>
               </button>
             </div>
+          </div>
+          <div className='comments-wrapper flex flex-col gap-12'>
+            {ProductComments.map((comment) => (
+              <ProductCommentCard key={comment.id} {...comment} />
+            ))}
           </div>
         </div>
       ),
