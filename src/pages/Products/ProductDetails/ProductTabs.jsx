@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Rating } from '@mui/material'
+import { FaPen } from 'react-icons/fa'
 
 export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState(0)
@@ -89,7 +91,76 @@ export default function ProductTabs() {
     {
       id: 1,
       label: 'Reviews(13)',
-      content: 'review Section',
+      content: (
+        <div className='main-container flex flex-col'>
+          <div className='rating-section col-span-1 grid gap-8 lg:grid-cols-4 lg:gap-0 lg:py-5 xl:grid-cols-3'>
+            {/* average rating */}
+            <div className='col-span-1 flex flex-col items-center justify-center gap-4 border-b border-dashed border-gray-300 pb-5 lg:border-r lg:border-b-0'>
+              <h6>Average rating</h6>
+              <strong className='text-4xl font-extrabold'>3.7/5</strong>
+              <Rating
+                name='half-rating-read'
+                defaultValue={2.5}
+                precision={0.5}
+                readOnly
+              />
+              <span className='text-xs text-gray-400'>(9.12k reviews)</span>
+            </div>
+            {/* stars counter */}
+            <div className='col-span-1 flex flex-col items-center justify-center gap-2 border-b border-dashed border-gray-300 pb-5 text-sm lg:col-span-2 lg:border-r lg:border-b-0 xl:col-span-1 xl:text-base'>
+              <div className='star-number-wraper flex items-center gap-2'>
+                <span className='font-medium'>5 Star</span>
+                <div className='progress flex h-1 w-32'>
+                  <span className='h-full w-1/4 rounded-lg bg-gray-950'></span>
+                  <span className='h-full w-3/4 rounded-lg bg-gray-200'></span>
+                </div>
+                <span className='font-light text-gray-400'>2.03k</span>
+              </div>
+
+              <div className='star-number-wraper flex items-center gap-2'>
+                <span className='font-medium'>4 Star</span>
+                <div className='progress flex h-1 w-32'>
+                  <span className='h-full w-2/4 rounded-lg bg-gray-950'></span>
+                  <span className='h-full w-2/4 rounded-lg bg-gray-200'></span>
+                </div>
+                <span className='font-light text-gray-400'>8.49k</span>
+              </div>
+
+              <div className='star-number-wraper flex items-center gap-2'>
+                <span className='font-medium'>3 Star</span>
+                <div className='progress flex h-1 w-32'>
+                  <span className='h-full w-2/5 rounded-lg bg-gray-950'></span>
+                  <span className='h-full w-3/5 rounded-lg bg-gray-200'></span>
+                </div>
+                <span className='font-light text-gray-400'>6.98k</span>
+              </div>
+              <div className='star-number-wraper flex items-center gap-2'>
+                <span className='font-medium'>2 Star</span>
+                <div className='progress flex h-1 w-32'>
+                  <span className='h-full w-1/4 rounded-lg bg-gray-950'></span>
+                  <span className='h-full w-3/4 rounded-lg bg-gray-200'></span>
+                </div>
+                <span className='font-light text-gray-400'>9.12k</span>
+              </div>
+              <div className='star-number-wraper flex items-center gap-2'>
+                <span className='font-medium'>1 Star</span>
+                <div className='progress flex h-1 w-32'>
+                  <span className='h-full w-1/10 rounded-lg bg-gray-950'></span>
+                  <span className='h-full w-9/10 rounded-lg bg-gray-200'></span>
+                </div>
+                <span className='font-light text-gray-400'>1.95k</span>
+              </div>
+            </div>
+            {/* write review */}
+            <div className='col-span-1 flex items-center justify-center'>
+              <button className='flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-6 py-3 text-xs font-semibold text-gray-950'>
+                <FaPen className='size-4' />
+                <span>Write Your Review</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      ),
     },
   ]
 
