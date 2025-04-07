@@ -10,7 +10,7 @@ export const products_data = [
     name: 'Urban Explorer Sneakers',
     price: 83.74,
     desc: 'Featuring the original ripple design inspired by Japanese bullet trains, the Nike Air Max 97 lets you push your style full-speed ahead.',
-    colors: ['#fff', '#666'],
+    colors: ['#22C55E', '#00B8D9', '#FFAB00', '#FF5630'],
     available: 70,
     images: [
       productImg,
@@ -26,7 +26,7 @@ export const products_data = [
     name: 'Classic Leather Loafers2',
     price: 97.14,
     desc: 'Featuring the original ripple design inspired by Japanese bullet trains, the Nike Air Max 97 lets you push your style full-speed ahead.',
-    colors: ['#fff', '#666'],
+    colors: ['#22C55E', '#FFAB00', '#FF5630'],
     available: 70,
     images: [
       productImg2,
@@ -42,7 +42,7 @@ export const products_data = [
     name: 'Classic Leather Loafers2',
     price: 67.14,
     desc: 'Featuring the original ripple design inspired by Japanese bullet trains, the Nike Air Max 97 lets you push your style full-speed ahead.',
-    colors: ['#fff', '#666'],
+    colors: ['#00B8D9', '#FF5630'],
     available: 30,
     images: [
       productImg3,
@@ -58,7 +58,7 @@ export const products_data = [
     name: 'Classic Leather Loafers2',
     price: 95.14,
     desc: 'Featuring the original ripple design inspired by Japanese bullet trains, the Nike Air Max 97 lets you push your style full-speed ahead.',
-    colors: ['#fff', '#666'],
+    colors: ['#22C55E', '#FF5630'],
     available: 30,
     images: [
       productImg4,
@@ -74,7 +74,7 @@ export const products_data = [
     name: 'Classic Leather Loafers2',
     price: 39.14,
     desc: 'Featuring the original ripple design inspired by Japanese bullet trains, the Nike Air Max 97 lets you push your style full-speed ahead.',
-    colors: ['#fff', '#666'],
+    colors: ['#22C55E', '#00B8D9', '#FFAB00', '#FF5630'],
     available: 30,
     images: [
       productImg5,

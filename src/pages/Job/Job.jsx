@@ -1,3 +1,12 @@
+import { Helmet } from 'react-helmet-async'
 export default function Job() {
-  return <div>Job</div>
+  return (
+    <>
+      <Helmet>
+        <title>Job</title>
+        <meta name='Job' content='Job ' />
+      </Helmet>
+      <div>Job </div>
+    </>
+  )
 }
