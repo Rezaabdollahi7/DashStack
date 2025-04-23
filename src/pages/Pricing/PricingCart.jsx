@@ -14,13 +14,13 @@ export default function PricingCart({ plan }) {
 
       <ul className='my-4 w-full space-y-4 border-y border-y-gray-200 py-6 text-center'>
         {plan.activeFacilities.map((activeLink) => (
-          <li className='font-base ' key={plan.id}>
+          <li className='font-base' key={plan.id}>
             {activeLink}
           </li>
         ))}
 
         {plan.deActiveFacilities.map((activeLink) => (
-          <li className='font-base  text-gray-400' key={plan.id}>
+          <li className='font-base text-gray-400' key={plan.id}>
             {activeLink}
           </li>
         ))}
