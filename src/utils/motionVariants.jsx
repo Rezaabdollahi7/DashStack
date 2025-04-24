@@ -58,6 +58,48 @@ export const fadeInRight = {
   },
 }
 
+// Animation variants
+export const mobileMenuVariants = {
+  closed: {
+    opacity: 0,
+    x: '100%',
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 30,
+    },
+  },
+  open: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 30,
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
+    },
+  },
+}
+
+export const menuItemVariants = {
+  closed: { opacity: 0, x: 20 },
+  open: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+}
+
+export const hamburgerIconVariants = {
+  closed: { rotate: 0 },
+  open: { rotate: 180 },
+}
+
 export const staggerChildren = {
   hidden: { opacity: 0 },
   visible: {
