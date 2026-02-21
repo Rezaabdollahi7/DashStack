@@ -4,6 +4,7 @@ import { usersInfo, getColumns } from '../../constants/Users'
 import { deleteUser } from '../../utils/userUtils'
 import UsersDataGrid from './UsersDataGrid'
 import CustomSnackbar from './CustomSnackbar'
+import { Helmet } from 'react-helmet-async'
 
 export default function UsersList() {
   const [userRows, setUserRows] = useState(usersInfo)
@@ -25,14 +26,20 @@ export default function UsersList() {
   }
 
   return (
-    <div className='wrapper'>
-      <HeroTitle name='Users' />
-      <UsersDataGrid rows={userRows} columns={getColumns(handleDeleteUser)} />
-      <CustomSnackbar
-        open={open}
-        onClose={handleClose}
-        message='User Deleted :))'
-      />
-    </div>
+    <>
+      <Helmet>
+        <title>Users</title>
+        <meta name='Users' content='Users ' />
+      </Helmet>
+      <div className='wrapper'>
+        <HeroTitle name='Users' />
+        <UsersDataGrid rows={userRows} columns={getColumns(handleDeleteUser)} />
+        <CustomSnackbar
+          open={open}
+          onClose={handleClose}
+          message='User Deleted :))'
+        />
+      </div>
+    </>
   )
 }

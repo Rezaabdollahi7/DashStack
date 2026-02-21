@@ -70,7 +70,7 @@ const MyApexChart = () => {
   })
 
   return (
-    <section className='mt-12 rounded-2xl bg-white px-2 py-4 md:px-6'>
+    <section className='rounded-2xl bg-white px-2 py-4 md:px-6'>
       <h5 className='text-light-black text-2xl font-bold'>Sales Details</h5>
       <div id='chart'>
         <div id='chart-timeline'>

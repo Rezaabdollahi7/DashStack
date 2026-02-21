@@ -7,6 +7,7 @@ import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 import { initialEvents } from '../../constants/Events'
 import EditEventModal from './EditEventModal'
 import EventDetailsModal from './EventDetailsModal'
+import { Helmet } from 'react-helmet-async'
 
 const localizer = momentLocalizer(moment)
 const DnDCalendar = withDragAndDrop(Calendar)
@@ -73,44 +74,50 @@ const MainCalendar = () => {
   }
 
   return (
-    <div
-      className='col-span-12 lg:col-span-9'
-      style={{
-        height: '800px',
-        padding: '20px',
-        backgroundColor: 'white',
-        border: '1px solid oklch(0.928 0.006 264.531)',
-        borderRadius: '1rem',
-      }}
-    >
-      <DnDCalendar
-        selectable
-        localizer={localizer}
-        events={events}
-        startAccessor='start'
-        endAccessor='end'
-        onSelectSlot={handleSelect}
-        views={['month', 'week', 'day']}
-        onEventDrop={handleEventDrop}
-        style={{ height: '100%' }}
-        draggableAccessor={() => true}
-        eventPropGetter={eventStyleGetter}
-        onDoubleClickEvent={handleEventEdit}
-        onSelectEvent={handleEventClick}
-      />
-      <EditEventModal
-        open={editModalOpen}
-        onClose={() => setEditModalOpen(false)}
-        event={selectedEvent}
-        onSave={handleSaveEvent}
-      />
-      <EventDetailsModal
-        open={detailsModalOpen}
-        onClose={() => setDetailsModalOpen(false)}
-        event={selectedEvent}
-        onEdit={handleEditClick}
-      />
-    </div>
+    <>
+      <Helmet>
+        <title>Calendar</title>
+        <meta name='description' content='Calendar' />
+      </Helmet>
+      <div
+        className='col-span-12 lg:col-span-9'
+        style={{
+          height: '800px',
+          padding: '20px',
+          backgroundColor: 'white',
+          border: '1px solid oklch(0.928 0.006 264.531)',
+          borderRadius: '1rem',
+        }}
+      >
+        <DnDCalendar
+          selectable
+          localizer={localizer}
+          events={events}
+          startAccessor='start'
+          endAccessor='end'
+          onSelectSlot={handleSelect}
+          views={['month', 'week', 'day']}
+          onEventDrop={handleEventDrop}
+          style={{ height: '100%' }}
+          draggableAccessor={() => true}
+          eventPropGetter={eventStyleGetter}
+          onDoubleClickEvent={handleEventEdit}
+          onSelectEvent={handleEventClick}
+        />
+        <EditEventModal
+          open={editModalOpen}
+          onClose={() => setEditModalOpen(false)}
+          event={selectedEvent}
+          onSave={handleSaveEvent}
+        />
+        <EventDetailsModal
+          open={detailsModalOpen}
+          onClose={() => setDetailsModalOpen(false)}
+          event={selectedEvent}
+          onEdit={handleEditClick}
+        />
+      </div>
+    </>
   )
 }
 
